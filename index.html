@@ -1,13 +1,39 @@
 <head>
 <link rel="stylesheet" href="testlayout.css">
 <style>
-.container {
+.score {
+  display: grid;
+  grid-template-columns: 6fr;
+  background-color: orange;
+  padding: 5px;
+}
+.score div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+  .container {
   display: grid;
   grid-template-columns: 3fr 3fr;
-  background-color: brown;
+  background-color: orange;
   padding: 5px;
 }
 .container div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+  .scoreac {
+  display: grid;
+  grid-template-columns: 6fr;
+  background-color: orange;
+  padding: 5px;
+}
+.scoreac div {
   background-color: #f1f1f1;
   border: 1px solid black;
   padding: 5px;
@@ -19,12 +45,14 @@
 <body>
 
 
+<div class="score">
+  <div style="background-color:brown;">what is the rizzlers fovorite color</div>
+</div>
 <div class="container">
   <div style="background-color:green;">integrity</div>
   <div style="background-color:red;">respect</div>
   <div style="background-color:yellow;">couristy</div>  
   <div style="background-color:blue;">courage</div>
 </div>
-
 </body>
 </html>
