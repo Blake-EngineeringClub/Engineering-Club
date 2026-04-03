@@ -1,1 +1,97 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blake Engineering Club - Projector Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            height: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+        .quadrants-container {
+            display: flex;
+            height: 75%;
+            gap: 0;
+        }
+        .quadrant {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 72px;
+            font-weight: bold;
+            color: white;
+        }
+        .red { background-color: #FF4444; }
+        .blue { background-color: #4444FF; }
+        .green { background-color: #44AA44; }
+        .yellow { 
+            background-color: #FFDD00;
+            color: #333;
+        }
+        .label {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blake Engineering Club</h1>
+        <p>Repository Language Composition</p>
+    </div>
+    <div class="quadrants-container">
+        <div class="quadrant red">
+            <div>
+                <div class="label">H</div>
+                <div style="font-size: 60px;">100%</div>
+            </div>
+        </div>
+        <div class="quadrant blue">
+            <div>
+                <div class="label">H</div>
+                <div style="font-size: 60px;">100%</div>
+            </div>
+        </div>
+        <div class="quadrant green">
+            <div>
+                <div class="label">H</div>
+                <div style="font-size: 60px;">100%</div>
+            </div>
+        </div>
+        <div class="quadrant yellow">
+            <div>
+                <div class="label">H</div>
+                <div style="font-size: 60px;">100%</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
