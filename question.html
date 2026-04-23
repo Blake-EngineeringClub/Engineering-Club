@@ -1,13 +1,27 @@
-
-<div class="quiz-container">
-    <div class="quiz-header">
-        <h1>Question Page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bowl Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container" id="quiz">
+        <div id="loader">Loading Questions...</div>
+        <div id="game" class="hidden">
+            <h2 id="question">Question Text</h2>
+            <div class="options" id="options-container">
+                <!-- JavaScript will inject buttons here -->
+            </div>
+            <button id="next-btn" class="hidden">Next Question</button>
+        </div>
+        <div id="result-container" class="hidden">
+            <h2>Quiz Complete!</h2>
+            <p id="score-text"></p>
+            <button onclick="location.reload()">Restart Quiz</button>
+        </div>
     </div>
-    <div class="question-box">
-        <h2 id="question">Question text here...</h2>
-    </div>
-    <div class="options-container">
-        <button class="option-btn">Option 1</button>
-        <button class="option-btn">Option 2</button>
-    </div>
-</div>
+    <script src="script.js"></script>
+</body>
+</html>
