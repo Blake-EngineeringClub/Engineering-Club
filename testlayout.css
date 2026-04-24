@@ -40,8 +40,44 @@ body, html {
 .main {
     grid-column: span 4;
     grid-row: span 5;
-    background-color: #33FF57; /* Green */
+    background-color: transparent;
+    perspective: 1000px;
 }
+
+.main-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.main:hover .main-inner {
+  transform: rotateX(180deg);
+}
+
+
+.menu, .question {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.menu {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.question{
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
 .footer{
     grid-row: span 2;
 }
