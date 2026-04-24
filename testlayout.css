@@ -1,53 +1,50 @@
 /* Remove default margins and make body full height */
 body, html {
     margin: 0;
-    padding: 0%;
+    padding: 0;
     height: 100%;
     font-family: sans-serif;
 }
 
-/* Container settings */
 .grid-container {
     display: grid;
+    /* Create 4 equal columns and 4 equal rows */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    
+    /* Fill the entire viewport height */
     height: 100vh;
-    /* Define 4 columns of equal width */
-    grid-template-columns: repeat(4, 1fr); 
-    /* Define 4 rows of equal height */
-    grid-template-rows: repeat(4, 1fr); 
-    gap: 10px; /* Space between grid items */
-    margin: 10px;
+    gap: 10px; /* Optional: adds space between cells */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* Individual cell styling with unique colors */
-
-.header {
-    background-color: #ff5e5e; /* Reddish */
-    /* Spans from column line 1 to line 5 (all 4 columns) */
-    grid-column: 1 / 5; 
-}
-
-.main-content {
-    background-color: #5effa3; /* Greenish */
-    /* Spans from column line 1 to 5 */
-    grid-column: 1 / 5; 
-    /* Spans from row line 2 to 4 (covering 2 rows) */
-    grid-row: 2 / 4; 
-}
-
-/* Individual footer cells (Row 4) */
-.footer-item:nth-child(3) { background-color: #5e76ff; } /* Blue */
-.footer-item:nth-child(4) { background-color: #ffea5e; } /* Yellow */
-.footer-item:nth-child(5) { background-color: #ff5eff; } /* Pink */
-.footer-item:nth-child(6) { background-color: #5efff6; } /* Cyan */
-
-/* General styling for visibility */
-.grid-container > div {
+/* Common styling for all grid items */
+.item {
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #333;
-    border: 2px solid rgba(0,0,0,0.1);
-    border-radius: 8px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border-radius: 4px;
 }
 
+/* First row spans all 4 columns */
+.header {
+    grid-column: span 4;
+    background-color: #FF5733; /* Coral */
+}
+
+/* Second row spans 2 rows (Row 2 and 3) and 4 columns */
+.main {
+    grid-column: span 4;
+    grid-row: span 2;
+    background-color: #33FF57; /* Green */
+}
+
+/* Individual cells for the last row */
+.footer-1 { background-color: #3357FF; } /* Blue */
+.footer-2 { background-color: #F333FF; } /* Pink */
+.footer-3 { background-color: #FFBD33; } /* Orange */
+.footer-4 { background-color: #33FFF3; } /* Cyan */
