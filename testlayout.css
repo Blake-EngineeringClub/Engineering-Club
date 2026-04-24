@@ -10,7 +10,7 @@ body, html {
     display: grid;
     /* Create 4 equal columns and 4 equal rows */
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     
     /* Fill the entire viewport height */
     height: 100vh;
@@ -39,12 +39,14 @@ body, html {
 /* Second row spans 2 rows (Row 2 and 3) and 4 columns */
 .main {
     grid-column: span 4;
-    grid-row: span 2;
+    grid-row: span 5;
     background-color: #33FF57; /* Green */
 }
-
+.footer{
+    grid-column: span 2;
+}
 /* Individual cells for the last row */
-.footer-1 { background-color: #3357FF; } /* Blue */
-.footer-2 { background-color: #F333FF; } /* Pink */
-.footer-3 { background-color: #FFBD33; } /* Orange */
-.footer-4 { background-color: #33FFF3; } /* Cyan */
+.footer.red { background-color: #D30000; } /* Red */
+.footer.blue { background-color: #3357FF; } /* Blue */
+.footer.green { background-color: #2E8B57; } /* Green */
+.footer.yellow { background-color: #FCD12A; } /* Yellow */
