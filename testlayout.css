@@ -43,7 +43,7 @@ body, html {
     background-color: #33FF57; /* Green */
 }
 .footer{
-    grid-column: span 2;
+    grid-row: span 2;
 }
 /* Individual cells for the last row */
 .footer.red { background-color: #D30000; } /* Red */
