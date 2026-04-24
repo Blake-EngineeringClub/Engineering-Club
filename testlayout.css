@@ -75,7 +75,7 @@ body, html {
 .question{
   background-color: dodgerblue;
   color: white;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .footer{
