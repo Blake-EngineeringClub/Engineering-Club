@@ -1,6 +1,15 @@
+/* Remove default margins and make body full height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
 /* Container settings */
 .grid-container {
     display: grid;
+    height: 100vh;
     /* Define 4 columns of equal width */
     grid-template-columns: repeat(4, 1fr); 
     /* Define 4 rows of equal height */
