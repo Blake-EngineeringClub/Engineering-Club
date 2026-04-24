@@ -30,17 +30,43 @@ body, html {
     border-radius: 4px;
 }
 
-.boxes {
-    display: grid;
-    /* Create 4 equal columns and 4 equal rows */
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    
-    /* Fill the entire viewport height */
-    height: 100vh;
-    gap: 10px; /* Optional: adds space between cells */
-    padding: 10px;
-    box-sizing: border-box;  
+.board {
+  display: grid;
+  /* Creates 6 equal columns */
+  grid-template-columns: repeat(6, 1fr); 
+  /* Standard Jeopardy board has 1 header row + 5 clue rows */
+  grid-template-rows: 100px repeat(5, 1fr); 
+  gap: 10px;
+  background-color: #000; /* Black borders between cells */
+  padding: 10px;
+  height: 90%;
+}
+
+.category, .clue {
+  background-color: #060ce9; /* Classic Jeopardy blue */
+  color: #ffcc00; /* Gold text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid #000;
+}
+
+.category {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.clue {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clue:hover {
+  background-color: #1218ff;
 }
 
 /* First row spans all 4 columns */
