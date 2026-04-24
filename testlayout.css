@@ -38,7 +38,7 @@ body, html {
   grid-template-rows: 100px repeat(5, 1fr); 
   gap: 10px;
   background-color: #000; /* Black borders between cells */
-  padding: 10px;
+
   height: 90%;
 }
 
