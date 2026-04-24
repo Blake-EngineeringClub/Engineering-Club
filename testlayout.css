@@ -53,7 +53,7 @@ body, html {
     transform-style: preserve-3d;
 }
 
-.main:hover .main-inner {
+.main.is-flipped .main-inner {
   transform: rotateX(180deg);
 }
 
