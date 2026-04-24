@@ -30,6 +30,19 @@ body, html {
     border-radius: 4px;
 }
 
+.boxes {
+    display: grid;
+    /* Create 4 equal columns and 4 equal rows */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    
+    /* Fill the entire viewport height */
+    height: 100vh;
+    gap: 10px; /* Optional: adds space between cells */
+    padding: 10px;
+    box-sizing: border-box;  
+}
+
 /* First row spans all 4 columns */
 .header {
     grid-column: span 4;
