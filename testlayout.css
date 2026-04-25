@@ -134,7 +134,30 @@ body, html {
 
 .footer{
     grid-row: span 2;
+    display: grid;
+    /* Creates 6 equal columns */
+    grid-template-rows: repeat(5, 1fr); 
+    grid-template-columns: 1fr 1fr; 
+    /* Standard Jeopardy board has 1 header row + 5 clue rows */
+    gap: 10px;
+    background-color: #000; /* Black borders between cells */
+    height: 90%;        
 }
+
+.house{
+    grid-column: span 2;
+    background-color: #FF5733; /* Coral */  
+}
+
+.score{
+    grid-column: span 2;
+    grid-row: span 3;    
+}
+
+.plus, .minus{
+
+}
+
 /* Individual cells for the last row */
 .footer.red { background-color: #D30000; } /* Red */
 .footer.blue { background-color: #3357FF; } /* Blue */
