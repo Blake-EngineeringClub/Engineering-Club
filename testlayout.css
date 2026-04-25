@@ -148,13 +148,17 @@ body, html {
 
 .house{
     grid-column: span 2;
-    background-color: #FF5733;
-    font-size: 10cqi; /* Scales as 10% of parent width */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; /* Scales as 10% of parent width */
 }
 
 .score{
     grid-column: span 2;
-    grid-row: span 3;    
+    grid-row: span 3; 
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem; /* Scales as 10% of parent width */
 }
 
 .plus, .minus{
