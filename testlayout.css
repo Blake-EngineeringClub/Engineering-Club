@@ -164,7 +164,19 @@ body, html {
 }
 
 .plus, .minus{
+    text-align: center;
+    font-size: 5rem; /* Scales as 10% of parent width */
+    background-color: white;
+    border-style: solid;
+    border-width: thick;
+}
 
+.plus{
+    border-color: green;
+}
+
+.plus{
+    border-color: red;
 }
 
 /* Individual cells for the last row */
