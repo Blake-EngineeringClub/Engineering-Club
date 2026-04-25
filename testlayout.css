@@ -142,11 +142,14 @@ body, html {
     gap: 10px;
     background-color: #000; /* Black borders between cells */
     height: 90%;        
+    container-type: inline-size;/* Coral */  
+
 }
 
 .house{
     grid-column: span 2;
-    background-color: #FF5733; /* Coral */  
+    background-color: #FF5733;
+    ont-size: 10cqi; /* Scales as 10% of parent width */
 }
 
 .score{
