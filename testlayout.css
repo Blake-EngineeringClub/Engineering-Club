@@ -169,14 +169,17 @@ body, html {
     background-color: white;
     border-style: solid;
     border-width: thick;
+    border-radius: 10px;
 }
 
 .plus{
     border-color: green;
+    color: red;
 }
 
-.plus{
+.minus{
     border-color: red;
+    color: red;
 }
 
 /* Individual cells for the last row */
