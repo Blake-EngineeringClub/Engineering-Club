@@ -165,7 +165,7 @@ body, html {
 
 .plus, .minus{
     text-align: center;
-    font-size: 5rem; /* Scales as 10% of parent width */
+    font-size: 3rem; /* Scales as 10% of parent width */
     background-color: white;
     border-style: solid;
     border-width: thick;
