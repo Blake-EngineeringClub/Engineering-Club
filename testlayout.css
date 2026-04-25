@@ -150,6 +150,7 @@ body, html {
     grid-column: span 2;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 2rem; /* Scales as 10% of parent width */
 }
 
@@ -158,6 +159,7 @@ body, html {
     grid-row: span 3; 
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 5rem; /* Scales as 10% of parent width */
 }
 
