@@ -9,20 +9,17 @@ let score = 0;
 
 async function fetchQuestions() {
     try {
-        // const response = await fetch(URL);
-        // const text = await response.text();
-        // // Google Sheets returns a JSON structure wrapped in a function call
-        // const json = JSON.parse(text.substr(47).slice(0, -2));
-        // //const json = await response.json();
-        
-        // questions = json.table.rows.map(row => ({
-        //     question: row.c[0].v,
-        //     options: [row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v],
-        //     answer: row.c[5].v
-        // }));
         const response = await fetch(URL);
         const text = await response.text();
-        const json = JSON.parse(text.slice(0, -2));
+        // Google Sheets returns a JSON structure wrapped in a function call
+        const json = JSON.parse(text.substr(47).slice(0, -2));
+        //const json = await response.json();
+        
+        questions = json.table.rows.map(row => ({
+            question: row.c[0].v,
+            options: [row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v],
+            answer: row.c[5].v
+        }));
         console.log(json);
         // Assuming first row is headers, mapping rows to objects
         questions = json.values.slice(1).map(row => ({
