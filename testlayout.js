@@ -51,6 +51,7 @@ for (let i = 0; i < 6; i++) {
 }
 
 function myListener(x,y){
+    console.log(x);
     question.innerText = questions[y].x;
     qtitle.innerText = y;
     main.classList.add('is-flipped');
