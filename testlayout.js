@@ -17,7 +17,7 @@ const qtitle = document.getElementById('qtitle');
 const main = document.getElementById('main');
 
 question.addEventListener('click', (event) => {
-    main.classList.toggle('is-flipped');
+    main.classList.remove('is-flipped');
 });
 
 async function fetchQuestions() {
