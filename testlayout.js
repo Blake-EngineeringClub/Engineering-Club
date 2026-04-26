@@ -12,7 +12,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 const clues = [];
-const question = document.getElementById('question');
+const question = document.getElementById('questionBox');
 const qtitle = document.getElementById('qtitle');
 const main = document.getElementById('main');
 
