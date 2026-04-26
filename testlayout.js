@@ -31,7 +31,7 @@ async function fetchQuestions() {
         console.error("Error fetching data:", error);
     }
 }
-
+fetchQuestions();
 console.log(questions);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
