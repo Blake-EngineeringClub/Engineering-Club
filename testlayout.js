@@ -54,7 +54,7 @@ function rpclick(){
 
 function bmclick(){
     blues -= 100;
-    blueScore.innerText = blue;
+    blueScore.innerText = blues;
 }
 
 function bpclick(){
