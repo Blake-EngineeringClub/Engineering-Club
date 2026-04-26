@@ -3,7 +3,13 @@ const SHEET_ID = '1Px4bbtqKRQvFQvBrIiExjfzFkDHtGRb8_s2NpXWr7AE'; // Replace this
 const SHEET_NAME = 'Sheet1'; 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
 
-let questions = [];
+let questionsA = [];
+let questionsB = [];
+let questionsC = [];
+let questionsD = [];
+let questionsE = [];
+let questionsF = [];
+
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -14,9 +20,12 @@ async function fetchQuestions() {
         // Google Sheets returns a JSON structure wrapped in a function call
         const json = JSON.parse(text.substr(88).slice(0, -2));        
         questions = json.table.rows.map(row => ({
-            question: row.c[0].v,
-            options: [row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v],
-            answer: row.c[5].v
+            questionA: row.c[0].v,
+            questionB: row.c[1].v, 
+            questionC: row.c[2].v, 
+            questionD: row.c[3].v, 
+            questionE: row.c[4].v,
+            questionF:: row.c[5].v
         }));
         document.getElementById('loader').classList.add('hidden');
         document.getElementById('game').classList.remove('hidden');
