@@ -21,6 +21,7 @@ async function fetchQuestions() {
         //     answer: row.c[5].v
         // }));
         const response = await fetch(URL);
+        console.log(response);
         const data = await response.json();
         // Assuming first row is headers, mapping rows to objects
         questions = data.values.slice(1).map(row => ({
