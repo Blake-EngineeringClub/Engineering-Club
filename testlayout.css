@@ -175,12 +175,12 @@ body, html {
 
 .plus{
     border-color: green;
-    color: green;
+    color: #00FF00;
 }
 
 .minus{
     border-color: red;
-    color: red;
+    color: #FF0000;
 }
 
 /* Individual cells for the last row */
