@@ -5,6 +5,7 @@ setTimeout(function() {
 const clues = [];
 const question = document.getElementById('question');
 const qtitle = document.getElementById('qtitle');
+const main = document.getElementById('main');
 
 let cat = ["A","B","C","D","E","F"];
 
@@ -21,5 +22,6 @@ for (let i = 0; i < 6; i++) {
 
 function myListener(x,y){
     question.innerText = x;
-    qtitle.innerText = y
+    qtitle.innerText = y;
+    main.classList.add('is-flipped');
 }
