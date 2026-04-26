@@ -17,7 +17,7 @@ async function fetchQuestions() {
     try {
         const response = await fetch(URL);
         const text = await response.text();
-        colsole.log(text);
+        console.log(text);
         // Google Sheets returns a JSON structure wrapped in a function call
         const json = JSON.parse(text.slice(0, -2));        
         questions = json.table.rows.map(row => ({
