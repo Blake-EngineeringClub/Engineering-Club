@@ -18,6 +18,8 @@ async function fetchQuestions() {
             options: [row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v],
             answer: row.c[5].v
         }));
+        document.getElementById('loader').classList.add('hidden');
+        document.getElementById('game').classList.remove('hidden');
         showQuestion();
     } catch (error) {
         console.error("Error fetching data:", error);
