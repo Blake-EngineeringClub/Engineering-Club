@@ -32,13 +32,12 @@ async function fetchQuestions() {
             questionE: row.c[4].v,
             questionF: row.c[5].v
         }));
-        console.log(questions[1]);
     } catch (error) {
         console.error("Error fetching data:", error);
     }
 }
 
-
+console.log(question[1]);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
     clues[i]=[];
