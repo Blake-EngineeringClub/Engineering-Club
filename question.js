@@ -10,10 +10,10 @@ let score = 0;
 async function fetchQuestions() {
     try {
         const response = await fetch(URL);
-        //const text = await response.text();
+        const text = await response.text();
         // Google Sheets returns a JSON structure wrapped in a function call
-        //const json = JSON.parse(text.substr(47).slice(0, -2));
-        const json = await response.json();
+        const json = JSON.parse(text.substr(47).slice(0, -2));
+        //const json = await response.json();
         
         questions = json.table.rows.map(row => ({
             question: row.c[0].v,
