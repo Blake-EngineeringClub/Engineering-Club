@@ -23,7 +23,7 @@ async function fetchQuestions() {
         const response = await fetch(url);
         const data = await response.json();
         // Assuming first row is headers, mapping rows to objects
-        quizData = data.values.slice(1).map(row => ({
+        questions = data.values.slice(1).map(row => ({
             question: row[0],
             options: [row[1], row[2], row[3], row[4]],
             correct: row[5]
