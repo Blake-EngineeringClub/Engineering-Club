@@ -170,6 +170,7 @@ body, html {
     border-style: solid;
     border-width: thick;
     border-radius: 10px;
+    color: green;
 }
 
 .plus{
