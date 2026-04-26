@@ -45,7 +45,7 @@ for (let i = 0; i < 6; i++) {
 }
 
 function myListener(x,y){
-    const q = questions[y];
+    const q = questions[y].question;
      console.log(q);
     question.innerText = q[x];
     qtitle.innerText = y;
