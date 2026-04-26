@@ -21,10 +21,11 @@ async function fetchQuestions() {
         //     answer: row.c[5].v
         // }));
         const response = await fetch(URL);
-        const data = await response.text();
-        console.log(data);
+        const text = await response.text();
+        const json = JSON.parse(text.slice(0, -2));
+        console.log(json);
         // Assuming first row is headers, mapping rows to objects
-        questions = data.values.slice(1).map(row => ({
+        questions = json.values.slice(1).map(row => ({
             question: row[0],
             options: [row[1], row[2], row[3], row[4]],
             correct: row[5]
