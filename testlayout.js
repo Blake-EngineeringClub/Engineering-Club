@@ -8,9 +8,9 @@ const qtitle = document.getElementById('qtitle');
 
 let cat = ["A","B","C","D","E","F"];
 
-for (let i = 0; i < 7; i++) {
+for (let i = 0; i < 6; i++) {
     clues[i]=[];
-    for (let j = 0; j < 6; j++) {
+    for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
         let x = this.myListener.bind(this,i,j);
         console.log(clueId);
