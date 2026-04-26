@@ -19,7 +19,7 @@ async function fetchQuestions() {
         const text = await response.text();
         console.log(text);
         // Google Sheets returns a JSON structure wrapped in a function call
-        const json = JSON.parse(text.slice(0, -2));        
+        const json = JSON.parse(text.substr(88).slice(0, -2));        
         questions = json.table.rows.map(row => ({
             question: row.c[0].v,
             options: [row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v],
