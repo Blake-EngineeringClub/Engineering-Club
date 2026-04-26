@@ -32,7 +32,7 @@ async function fetchQuestions() {
     }
 }
 
-console.log(questions[1]);
+console.log(questions[1].question);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
     clues[i]=[];
