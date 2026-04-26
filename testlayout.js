@@ -30,7 +30,7 @@ async function fetchQuestions() {
             questionC: row.c[2].v, 
             questionD: row.c[3].v, 
             questionE: row.c[4].v,
-            questionF:: row.c[5].v
+            questionF: row.c[5].v
         }));
     } catch (error) {
         console.error("Error fetching data:", error);
