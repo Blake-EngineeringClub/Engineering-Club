@@ -38,12 +38,12 @@ async function fetchQuestions() {
 }
 
 
-let cat = ["A","B","C","D","E","F"];
+let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
-        let x = this.myListener.bind(this,i,j);
+        let x = this.myListener.bind(this,cat[i],j);
         console.log(clueId);
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x);
@@ -51,7 +51,7 @@ for (let i = 0; i < 6; i++) {
 }
 
 function myListener(x,y){
-    question.innerText = x;
+    question.innerText = questions[y].x;
     qtitle.innerText = y;
     main.classList.add('is-flipped');
 }
