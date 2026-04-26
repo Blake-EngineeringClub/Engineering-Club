@@ -21,14 +21,6 @@ async function fetchQuestions() {
             answer: row.c[5].v
         }));
         console.log(json);
-        // Assuming first row is headers, mapping rows to objects
-        questions = json.values.slice(1).map(row => ({
-            question: row[0],
-            options: [row[1], row[2], row[3], row[4]],
-            correct: row[5]
-        }));
-        document.getElementById('loader').classList.add('hidden');
-        document.getElementById('game').classList.remove('hidden');
         showQuestion();
     } catch (error) {
         console.error("Error fetching data:", error);
