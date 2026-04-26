@@ -15,6 +15,14 @@ const clues = [];
 const question = document.getElementById('questionBox');
 const qtitle = document.getElementById('qtitle');
 const main = document.getElementById('main');
+const redMinus = document.getElementById('redMinus');
+const redPlus = document.getElementById('redPlus');
+const blueMinus = document.getElementById('blueMinus');
+const bluePlus = document.getElementById('bluePlus');
+const greenMinus = document.getElementById('greenMinus');
+const greenPlus = document.getElementById('greenPlus');
+const yellowMinus = document.getElementById('yellowMinus');
+const yellowPlus = document.getElementById('yellowPlus');
 
 question.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
