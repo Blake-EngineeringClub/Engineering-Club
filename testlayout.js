@@ -13,6 +13,7 @@ for (let i = 0; i < 7; i++) {
     for (let j = 0; j < 6; j++) {
         let clueId = cat[i]+j;
         let x = this.myListener.bind(this,i,j);
+        console.log(clueId);
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x);
     }
