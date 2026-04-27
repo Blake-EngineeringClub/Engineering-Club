@@ -87,7 +87,8 @@ body, html {
 /* First row spans all 4 columns */
 .header {
     grid-column: span 4;
-    background-color: #FF5733; /* Coral */
+    background-color: transparent;
+    perspective: 1000px;
 }
 
 .header-inner {
