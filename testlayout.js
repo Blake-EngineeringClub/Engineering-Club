@@ -17,7 +17,8 @@ let yellows = 0;
 const clues = [];
 const question = document.getElementById('question');
 const questionBox = document.getElementById('questionBox');
-const qtitle = document.getElementById('qtitle');
+const qtitle = document.getElementById('header-back');
+const header = document.getElementById('header');
 const main = document.getElementById('main');
 const redMinus = document.getElementById('redMinus');
 const redPlus = document.getElementById('redPlus');
@@ -119,4 +120,5 @@ function myListener(x,y){
     question.innerText = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+(x*100);
     main.classList.add('is-flipped');
+    header.classList.add('h-flipped');
 }
