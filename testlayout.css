@@ -110,6 +110,7 @@ body, html {
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  font-size: 5rem; 
 }
 
 .header-front{
