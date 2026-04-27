@@ -16,6 +16,7 @@ let yellows = 0;
 
 const clues = [];
 const question = document.getElementById('question');
+const questionBox = document.getElementById('questionBox');
 const qtitle = document.getElementById('qtitle');
 const main = document.getElementById('main');
 const redMinus = document.getElementById('redMinus');
@@ -84,7 +85,7 @@ function ypclick(){
 
 
 
-question.addEventListener('click', (event) => {
+questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
 });
 
