@@ -112,8 +112,15 @@ body, html {
   backface-visibility: hidden;
 }
 
+.header-front{
+  background-color: #bbb;
+  color: black;
+}
+
 .header-back {
-     transform: rotateX(-180deg); */
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateX(180deg);
 }
 
 /* Second row spans 2 rows (Row 2 and 3) and 4 columns */
