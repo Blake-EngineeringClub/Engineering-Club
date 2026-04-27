@@ -88,6 +88,7 @@ function ypclick(){
 
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
+    header.classList.remove('is-flipped');
 });
 
 async function fetchQuestions() {
