@@ -132,6 +132,17 @@ body, html {
   transform: rotateX(180deg);
 }
 
+.question.h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.question.p{
+  font-size: 2rem;
+  text-align: left;
+}
+
 .footer{
     grid-row: span 2;
     display: grid;
