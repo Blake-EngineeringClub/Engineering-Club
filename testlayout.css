@@ -90,6 +90,31 @@ body, html {
     background-color: #FF5733; /* Coral */
 }
 
+.header-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.header.is-flipped .header-inner {
+  transform: rotateX(-180deg);
+}
+
+.header-front .header-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.header-back {
+     transform: rotateX(-180deg); */
+}
+
 /* Second row spans 2 rows (Row 2 and 3) and 4 columns */
 .main {
     grid-column: span 4;
