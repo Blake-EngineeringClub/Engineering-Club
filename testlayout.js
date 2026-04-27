@@ -15,7 +15,7 @@ let greens = 0;
 let yellows = 0;
 
 const clues = [];
-const question = document.getElementById('questionBox');
+const question = document.getElementById('question');
 const qtitle = document.getElementById('qtitle');
 const main = document.getElementById('main');
 const redMinus = document.getElementById('redMinus');
