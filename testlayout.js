@@ -120,5 +120,5 @@ function myListener(x,y){
     question.innerText = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+(x*100);
     main.classList.add('is-flipped');
-    header.classList.add('h-flipped');
+    header.classList.add('is-flipped');
 }
