@@ -4,10 +4,14 @@ setTimeout(function() {
 }, 3000);
 
 const SHEET_ID = '1Px4bbtqKRQvFQvBrIiExjfzFkDHtGRb8_s2NpXWr7AE'; // Replace this!
-const SHEET_NAME = 'Sheet1'; 
-const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+const QUESTION_SHEET = 'Sheet1'; 
+const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${QUESTION_SHEET}`;
+
+const ANSWER_SHEET = 'Sheet2'; 
+const URL2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID2}/gviz/tq?tqx=out:json&sheet=${ANSWER_SHEET}`;
 
 let questions = [];
+let answers = [];
 let currentQuestionIndex = 0;
 let reds = 0;
 let blues = 0;
@@ -34,6 +38,7 @@ const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
 
 fetchQuestions();
+fetchAnswers();
 
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
@@ -104,7 +109,19 @@ async function fetchQuestions() {
         console.error("Error fetching data:", error);
     }
 }
-
+async function fetchAnswers() {
+    try {
+        const response = await fetch(URL);
+        const text = await response.text();
+        // Google Sheets returns a JSON structure wrapped in a function call
+        const json = JSON.parse(text.substr(47).slice(0, -2));        
+        answers = json.table.rows.map(row => ({
+            answers: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
+        }));
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
 console.log(questions);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
