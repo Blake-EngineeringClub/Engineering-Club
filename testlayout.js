@@ -17,6 +17,8 @@ let reds = 0;
 let blues = 0;
 let greens = 0;
 let yellows = 0;
+let catagory = 0;
+let questionNo = 0;
 
 const clues = [];
 const question = document.getElementById('question');
@@ -37,6 +39,8 @@ const blueScore = document.getElementById('blueScore');
 const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
 
+const answerBtn = document.getElementById('answerBtn');
+
 fetchQuestions();
 fetchAnswers();
 
@@ -48,6 +52,12 @@ greenMinus.addEventListener('click',gmclick);
 greenPlus.addEventListener('click',gpclick);
 yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
+
+answerBtn.addEventListener('click',showAnswer);
+
+function showAnswer (){
+    alert(answers[y].answer[x];);
+}
 
 function rmclick(){
     reds -= 100;
@@ -116,7 +126,7 @@ async function fetchAnswers() {
         // Google Sheets returns a JSON structure wrapped in a function call
         const json = JSON.parse(text.substr(47).slice(0, -2));        
         answers = json.table.rows.map(row => ({
-            answers: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
+            answer: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
         }));
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -139,4 +149,6 @@ function myListener(x,y){
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
+    catagory = x;
+    questionNo = y;
 }
