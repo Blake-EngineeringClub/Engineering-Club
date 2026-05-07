@@ -17,7 +17,7 @@ let reds = 0;
 let blues = 0;
 let greens = 0;
 let yellows = 0;
-let catagory = 0;
+let category = 0;
 let questionNo = 0;
 
 const clues = [];
@@ -149,6 +149,6 @@ function myListener(x,y){
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
-    catagory = x;
+    category = x;
     questionNo = y;
 }
