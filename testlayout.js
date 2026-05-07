@@ -55,8 +55,9 @@ yellowPlus.addEventListener('click',ypclick);
 
 answerBtn.addEventListener('click',showAnswer);
 
-function showAnswer (){
+function showAnswer (event){
     alert(answers[category].answer[questionNo]);
+    event.stopPropagation();
 }
 
 function rmclick(){
