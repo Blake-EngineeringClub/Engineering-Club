@@ -122,7 +122,7 @@ async function fetchQuestions() {
 }
 async function fetchAnswers() {
     try {
-        const response = await fetch(URL);
+        const response = await fetch(URL2);
         const text = await response.text();
         // Google Sheets returns a JSON structure wrapped in a function call
         const json = JSON.parse(text.substr(47).slice(0, -2));        
