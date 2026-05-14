@@ -89,6 +89,7 @@ connect.addEventListener('click', async (event) => {
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
     header.classList.remove('is-flipped');
+    sendReady();
 });
 
 fetchQuestions();
@@ -186,4 +187,26 @@ function myListener(x,y){
     header.classList.add('is-flipped');
     category = y;
     questionNo = x;
+}
+
+async function sendReady(){
+    keepReading = false;
+    
+    serOut.textContent = "connecting...";
+    serOut.style.backgroundColor = "grey"
+
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+
+    const writer = textEncoder.writable.getWriter();
+
+    await writer.write("ready\n");
+    
+    writer.close();
+    await writableStreamClosed;     
+    
+    writer.releaseLock();
+
+    keepReading = true;
+
 }
