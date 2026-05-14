@@ -51,8 +51,7 @@ const yellowScore = document.getElementById('yellowScore');
 
 const answerBtn = document.getElementById('answerBtn');
 
-fetchQuestions();
-fetchAnswers();
+
 
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
@@ -62,8 +61,50 @@ greenMinus.addEventListener('click',gmclick);
 greenPlus.addEventListener('click',gpclick);
 yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
-
 answerBtn.addEventListener('click',showAnswer);
+
+connect.addEventListener('click', async (event) => {
+    const filters = [
+        { usbVendorId: 12346, usbProductId: 16385 }
+    ];
+    port = await navigator.serial.requestPort({filters}); 
+    await port.open({ baudRate: 115200 });
+    
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    
+    const writer = textEncoder.writable.getWriter();
+    
+    await writer.write("C1000");
+    
+    writer.close();
+    await writableStreamClosed;     
+    
+    writer.releaseLock();
+    
+    keepReading = true;
+
+});
+
+questionBox.addEventListener('click', (event) => {
+    main.classList.remove('is-flipped');
+    header.classList.remove('is-flipped');
+});
+
+fetchQuestions();
+fetchAnswers();
+
+console.log(questions);
+let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
+for (let i = 0; i < 6; i++) {
+    clues[i]=[];
+    for (let j = 1; j < 6; j++) {
+        let clueId = cat[i]+j;
+        let x = this.myListener.bind(this,i,j);
+        clues[i][j]=document.getElementById(clueId);
+        clues[i][j].addEventListener('click',x);
+    }
+}
 
 function showAnswer (event){
     alert(answers[category].answer[questionNo]);
@@ -110,34 +151,6 @@ function ypclick(){
     yellowScore.innerText = yellows;
 }
 
-connect.addEventListener('click', async (event) => {
-    const filters = [
-        { usbVendorId: 12346, usbProductId: 16385 }
-    ];
-    port = await navigator.serial.requestPort({filters}); 
-    await port.open({ baudRate: 115200 });
-    
-    const textEncoder = new TextEncoderStream();
-    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
-    
-    const writer = textEncoder.writable.getWriter();
-    
-    await writer.write("C1000");
-    
-    writer.close();
-    await writableStreamClosed;     
-    
-    writer.releaseLock();
-    
-    keepReading = true;
-
-});
-
-questionBox.addEventListener('click', (event) => {
-    main.classList.remove('is-flipped');
-    header.classList.remove('is-flipped');
-});
-
 async function fetchQuestions() {
     try {
         const response = await fetch(URL);
@@ -151,29 +164,19 @@ async function fetchQuestions() {
         console.error("Error fetching data:", error);
     }
 }
+
 async function fetchAnswers() {
     try {
-        const response = await fetch(URL2);
-        const text = await response.text();
-        // Google Sheets returns a JSON structure wrapped in a function call
-        const json = JSON.parse(text.substr(47).slice(0, -2));        
-        answers = json.table.rows.map(row => ({
-            answer: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
-        }));
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    }
-}
-console.log(questions);
-let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
-for (let i = 0; i < 6; i++) {
-    clues[i]=[];
-    for (let j = 1; j < 6; j++) {
-        let clueId = cat[i]+j;
-        let x = this.myListener.bind(this,i,j);
-        clues[i][j]=document.getElementById(clueId);
-        clues[i][j].addEventListener('click',x);
-    }
+            const response = await fetch(URL2);
+            const text = await response.text();
+            // Google Sheets returns a JSON structure wrapped in a function call
+            const json = JSON.parse(text.substr(47).slice(0, -2));        
+            answers = json.table.rows.map(row => ({
+                answer: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
+            }));
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
 }
 
 function myListener(x,y){
