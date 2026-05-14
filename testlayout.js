@@ -19,6 +19,7 @@ let greens = 0;
 let yellows = 0;
 let category = 0;
 let questionNo = 0;
+let keepReading = false;
 
 const decoder = new TextDecoder();
 let port = "";
@@ -192,8 +193,7 @@ function myListener(x,y){
 async function sendReady(){
     keepReading = false;
     
-    serOut.textContent = "connecting...";
-    serOut.style.backgroundColor = "grey"
+
 
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
@@ -209,4 +209,22 @@ async function sendReady(){
 
     keepReading = true;
 
+}
+
+ async function sendQuestion(){
+    keepReading = false;=
+
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+
+    const writer = textEncoder.writable.getWriter();
+
+    await writer.write("question\n");
+    
+    writer.close();
+    await writableStreamClosed;     
+    
+    writer.releaseLock();
+
+    keepReading = true;
 }
