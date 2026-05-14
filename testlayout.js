@@ -20,7 +20,17 @@ let yellows = 0;
 let category = 0;
 let questionNo = 0;
 
+const decoder = new TextDecoder();
+let port = "";
+let keepReading = false;
+let stream;
+let reader;
+let textDecoder;
+let readableStreamClosed;
+
+
 const clues = [];
+const connect = document.getElementById('connect');
 const question = document.getElementById('question');
 const questionBox = document.getElementById('questionBox');
 const qtitle = document.getElementById('header-back');
@@ -100,7 +110,28 @@ function ypclick(){
     yellowScore.innerText = yellows;
 }
 
+connect.addEventListener('click', async (event) => {
+    const filters = [
+        { usbVendorId: 12346, usbProductId: 16385 }
+    ];
+    port = await navigator.serial.requestPort({filters}); 
+    await port.open({ baudRate: 115200 });
+    
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    
+    const writer = textEncoder.writable.getWriter();
+    
+    await writer.write("C1000");
+    
+    writer.close();
+    await writableStreamClosed;     
+    
+    writer.releaseLock();
+    
+    keepReading = true;
 
+});
 
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
