@@ -21,7 +21,7 @@ body, html {
   transition: opacity 0.5s ease; /* Smooth fade-out effect */
 }
 
-.connect_button{
+.connect_btn{
   background-color: #04AA6D;
   border: none;
   color: white;
