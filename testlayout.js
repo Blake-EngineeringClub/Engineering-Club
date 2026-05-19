@@ -191,7 +191,7 @@ async function sendReady(){
 }
 
  async function sendQuestion(){
-    keepReading = false;=
+    keepReading = false;
 
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
