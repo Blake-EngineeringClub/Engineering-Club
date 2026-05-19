@@ -23,7 +23,7 @@ let keepReading = false;
 
 const decoder = new TextDecoder();
 let port = "";
-let keepReading = false;
+
 let stream;
 let reader;
 let textDecoder;
