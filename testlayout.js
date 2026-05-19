@@ -64,28 +64,7 @@ yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
 answerBtn.addEventListener('click',showAnswer);
 
-connect.addEventListener('click', async (event) => {
-    const filters = [
-        { usbVendorId: 12346, usbProductId: 16385 }
-    ];
-    port = await navigator.serial.requestPort({filters}); 
-    await port.open({ baudRate: 115200 });
-    
-    const textEncoder = new TextEncoderStream();
-    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
-    
-    const writer = textEncoder.writable.getWriter();
-    
-    await writer.write("C1000");
-    
-    writer.close();
-    await writableStreamClosed;     
-    
-    writer.releaseLock();
-    
-    keepReading = true;
-
-});
+connect.addEventListener('click', connectToBuzzers);
 
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
@@ -227,4 +206,69 @@ async function sendReady(){
     writer.releaseLock();
 
     keepReading = true;
+}
+
+async function connectToBuzzers() {
+    let count = 0;
+    while (true) {
+        if (keepReading){
+        while (port.readable) {
+            if (port.readable.locked){
+                reader.cancel();
+                await reader.releaseLock();
+                reader = port.readable.getReader();
+            }
+            else{
+                reader = port.readable.getReader();
+            }
+            let chunks = '';
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    const decoded = decoder.decode(value);
+                    chunks += decoded;                
+                    if (done || decoded.includes(EOT)) {
+                         chunks = chunks.trim();
+                        if (chunks != ""){
+                            if (chunks == "yellow connected"){
+                                count++;
+                                connected[0] = 1;
+                                serOut.textContent = "yellow done";
+                                serOut.style.backgroundColor = "yellow"
+                            }
+                            if (chunks == "blue connected"){
+                                count++;
+                                connected[1] = 1;
+                                serOut.textContent = "blue done";
+                                serOut.style.backgroundColor = "blue"
+                            }
+                            if (chunks == "red connected"){
+                                count++;
+                                connected[2] = 1;
+                                serOut.textContent = "red done";
+                                serOut.style.backgroundColor = "red"
+                            }
+                            if (chunks == "green connected"){
+                                count++;
+                                connected[3] = 1;
+                                serOut.textContent = "green done";
+                                serOut.style.backgroundColor = "green"
+                            }
+                            if (count >= maxCount)
+                                return chunks;
+                        }
+                        break;
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                throw error;
+            } finally {
+                keepReading = true;
+            }
+            await sleep(10); 
+        }  
+    }
+        await sleep(10); 
+    }
 }
