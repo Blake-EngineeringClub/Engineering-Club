@@ -28,7 +28,7 @@ let readableStreamClosed;
 
 const clues = [];
 
-const connectRed = document.getElementById('red_connect);
+const connectRed = document.getElementById('red_connect');
 const connectBlue = document.getElementById('blue_connect');
 const connectGreen = document.getElementById('green_connect');
 const connectYellow = document.getElementById('yellow_connect');
