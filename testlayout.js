@@ -54,7 +54,7 @@ const yellowScore = document.getElementById('yellowScore');
 
 const answerBtn = document.getElementById('answerBtn');
 
-
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
