@@ -32,7 +32,12 @@ let readableStreamClosed;
 
 
 const clues = [];
-const connect = document.getElementById('connect');
+
+const connectRed = document.getElementById('connect_red');
+const connectBlue = document.getElementById('connect_blue');
+const connectGreen = document.getElementById('connect_green');
+const connectYellow = document.getElementById('connect_yellow');
+
 const question = document.getElementById('question');
 const questionBox = document.getElementById('questionBox');
 const qtitle = document.getElementById('header-back');
