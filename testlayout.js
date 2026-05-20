@@ -70,7 +70,7 @@ yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
 answerBtn.addEventListener('click',showAnswer);
 
-connect.addEventListener('click', connectToBuzzers);
+//connect.addEventListener('click', connectToBuzzers);
 
 connectRed.addEventListener('click', redConnect);
 connectBlue.addEventListener('click', blueConnect);
