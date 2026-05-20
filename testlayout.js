@@ -1,8 +1,3 @@
-// Option B: Disappear after a set time (e.g., 3 seconds)
-setTimeout(function() {
-    document.getElementById('overlay').remove();
-}, 3000);
-
 const SHEET_ID = '1Px4bbtqKRQvFQvBrIiExjfzFkDHtGRb8_s2NpXWr7AE'; // Replace this!
 const QUESTION_SHEET = 'Sheet1'; 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${QUESTION_SHEET}`;
