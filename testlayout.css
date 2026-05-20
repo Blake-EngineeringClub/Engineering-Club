@@ -21,6 +21,14 @@ body, html {
   transition: opacity 0.5s ease; /* Smooth fade-out effect */
 }
 
+.flex-container {
+     display: flex;
+}
+
+.flex-item{
+
+}
+
 .connect_btn{
   background-color: #04AA6D;
   border: none;
