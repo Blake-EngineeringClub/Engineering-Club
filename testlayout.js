@@ -16,6 +16,7 @@ let category = 0;
 let questionNo = 0;
 let keepReading = false;
 let count = 0;
+let state = "idle";
 
 const decoder = new TextDecoder();
 let port = "";
@@ -55,6 +56,12 @@ const yellowScore = document.getElementById('yellowScore');
 const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const filters = [
+    { usbVendorId: 12346, usbProductId: 16385 }
+];
+port = await navigator.serial.requestPort({filters}); 
+await port.open({ baudRate: 115200 });
 
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
@@ -182,40 +189,25 @@ function myListener(x,y){
 
 async function sendReady(){
     keepReading = false;
-    
-
-
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
-
     const writer = textEncoder.writable.getWriter();
-
-    await writer.write("ready\n");
-    
+    await writer.write("ready\n"); 
     writer.close();
-    await writableStreamClosed;     
-    
+    await writableStreamClosed;      
     writer.releaseLock();
-
     keepReading = true;
-
 }
 
  async function sendQuestion(){
     keepReading = false;
-
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
-
     const writer = textEncoder.writable.getWriter();
-
     await writer.write("question\n");
-    
     writer.close();
     await writableStreamClosed;     
-    
     writer.releaseLock();
-
     keepReading = true;
 }
 
@@ -265,6 +257,7 @@ async function blueConnect() {
     }
 }
 async function greenConnect() {
+    
     while (true) {
         if (keepReading){
         while (port.readable) {
