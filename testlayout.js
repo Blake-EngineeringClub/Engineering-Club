@@ -28,10 +28,10 @@ let readableStreamClosed;
 
 const clues = [];
 
-const connectRed = document.getElementById('connect_red');
-const connectBlue = document.getElementById('connect_blue');
-const connectGreen = document.getElementById('connect_green');
-const connectYellow = document.getElementById('connect_yellow');
+const connectRed = document.getElementById('red_connect);
+const connectBlue = document.getElementById('blue_connect');
+const connectGreen = document.getElementById('green_connect');
+const connectYellow = document.getElementById('yellow_connect');
 const startBtn = document.getElementById('start');
 
 const question = document.getElementById('question');
