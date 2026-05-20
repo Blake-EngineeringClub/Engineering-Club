@@ -27,7 +27,7 @@ body, html {
 
 .flex-status{
   height: 3vh;
-  width: 5vw;
+  width: 8vw;
   border: none;
   color: black;
   padding: 5px 8px;
@@ -41,7 +41,7 @@ body, html {
 
 .flex-button{
   height: 3vh;
-  width: 5vw;
+  width: 8vw;
   border: none;
   color: white;
   padding: 5px 8px;
