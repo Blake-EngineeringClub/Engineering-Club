@@ -72,6 +72,11 @@ answerBtn.addEventListener('click',showAnswer);
 
 connect.addEventListener('click', connectToBuzzers);
 
+connectRed.addEventListener('click', redConnect);
+connectBlue.addEventListener('click', blueConnect);
+connectGreen.addEventListener('click', greenConnect);
+connectYellow.addEventListener('click', yellowConnect);
+
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
     header.classList.remove('is-flipped');
@@ -214,7 +219,7 @@ async function sendReady(){
     keepReading = true;
 }
 
-async function connectBlue() {
+async function blueConnect() {
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -259,7 +264,7 @@ async function connectBlue() {
         await sleep(10); 
     }
 }
-async function connectGreen() {
+async function greenConnect() {
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -304,7 +309,7 @@ async function connectGreen() {
         await sleep(10); 
     }
 }
-async function connectYellow() {
+async function yellowConnect() {
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -350,7 +355,7 @@ async function connectYellow() {
     }
 }
 
-async function connectRed() {
+async function redConnect() {
     while (true) {
         if (keepReading){
         while (port.readable) {
