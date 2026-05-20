@@ -37,6 +37,7 @@ const connectRed = document.getElementById('connect_red');
 const connectBlue = document.getElementById('connect_blue');
 const connectGreen = document.getElementById('connect_green');
 const connectYellow = document.getElementById('connect_yellow');
+const startBtn = document.getElementById('start');
 
 const question = document.getElementById('question');
 const questionBox = document.getElementById('questionBox');
@@ -70,7 +71,7 @@ yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
 answerBtn.addEventListener('click',showAnswer);
 
-//connect.addEventListener('click', connectToBuzzers);
+startBtn.addEventListener('click', start);
 
 connectRed.addEventListener('click', redConnect);
 connectBlue.addEventListener('click', blueConnect);
@@ -96,6 +97,10 @@ for (let i = 0; i < 6; i++) {
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x);
     }
+}
+
+function start () {
+    document.getElementById('overlay').remove();
 }
 
 function showAnswer (event){
