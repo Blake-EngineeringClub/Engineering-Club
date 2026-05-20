@@ -20,6 +20,7 @@ let yellows = 0;
 let category = 0;
 let questionNo = 0;
 let keepReading = false;
+let count = 0;
 
 const decoder = new TextDecoder();
 let port = "";
@@ -208,8 +209,97 @@ async function sendReady(){
     keepReading = true;
 }
 
-async function connectToBuzzers() {
-    let count = 0;
+async function connectBlue() {
+    while (true) {
+        if (keepReading){
+        while (port.readable) {
+            if (port.readable.locked){
+                reader.cancel();
+                await reader.releaseLock();
+                reader = port.readable.getReader();
+            }
+            else{
+                reader = port.readable.getReader();
+            }
+            let chunks = '';
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    const decoded = decoder.decode(value);
+                    chunks += decoded;                
+                    if (done || decoded.includes(EOT)) {
+                         chunks = chunks.trim();
+                        if (chunks != ""){
+                            if (chunks == "blue connected"){
+                                count++;
+                                serOut.textContent = "blue done";
+                                serOut.style.backgroundColor = "blue"
+                            } else if(chunks == "timeout"){
+                                serOut.textContent = "Connection Timed out";
+                                serOut.style.backgroundColor = "light blue"                                
+                            }
+                        }
+                        break;
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                throw error;
+            } finally {
+                keepReading = true;
+            }
+            await sleep(10); 
+        }  
+    }
+        await sleep(10); 
+    }
+}
+async function connectGreen() {
+    while (true) {
+        if (keepReading){
+        while (port.readable) {
+            if (port.readable.locked){
+                reader.cancel();
+                await reader.releaseLock();
+                reader = port.readable.getReader();
+            }
+            else{
+                reader = port.readable.getReader();
+            }
+            let chunks = '';
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    const decoded = decoder.decode(value);
+                    chunks += decoded;                
+                    if (done || decoded.includes(EOT)) {
+                         chunks = chunks.trim();
+                        if (chunks != ""){
+                            if (chunks == "red connected"){
+                                count++;
+                                serOut.textContent = "green done";
+                                serOut.style.backgroundColor = "green"
+                            } else if(chunks == "timeout"){
+                                serOut.textContent = "Connection Timed out";
+                                serOut.style.backgroundColor = "light greed"                                
+                            }
+                        }
+                        break;
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                throw error;
+            } finally {
+                keepReading = true;
+            }
+            await sleep(10); 
+        }  
+    }
+        await sleep(10); 
+    }
+}
+async function connectYellow() {
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -232,30 +322,58 @@ async function connectToBuzzers() {
                         if (chunks != ""){
                             if (chunks == "yellow connected"){
                                 count++;
-                                connected[0] = 1;
                                 serOut.textContent = "yellow done";
                                 serOut.style.backgroundColor = "yellow"
+                            } else if(chunks == "timeout"){
+                                serOut.textContent = "Connection Timed out";
+                                serOut.style.backgroundColor = "light yellow"                                
                             }
-                            if (chunks == "blue connected"){
-                                count++;
-                                connected[1] = 1;
-                                serOut.textContent = "blue done";
-                                serOut.style.backgroundColor = "blue"
-                            }
+                        }
+                        break;
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                throw error;
+            } finally {
+                keepReading = true;
+            }
+            await sleep(10); 
+        }  
+    }
+        await sleep(10); 
+    }
+}
+
+async function connectRed() {
+    while (true) {
+        if (keepReading){
+        while (port.readable) {
+            if (port.readable.locked){
+                reader.cancel();
+                await reader.releaseLock();
+                reader = port.readable.getReader();
+            }
+            else{
+                reader = port.readable.getReader();
+            }
+            let chunks = '';
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    const decoded = decoder.decode(value);
+                    chunks += decoded;                
+                    if (done || decoded.includes(EOT)) {
+                         chunks = chunks.trim();
+                        if (chunks != ""){
                             if (chunks == "red connected"){
                                 count++;
-                                connected[2] = 1;
                                 serOut.textContent = "red done";
                                 serOut.style.backgroundColor = "red"
+                            } else if(chunks == "timeout"){
+                                serOut.textContent = "Connection Timed out";
+                                serOut.style.backgroundColor = " light red"                                
                             }
-                            if (chunks == "green connected"){
-                                count++;
-                                connected[3] = 1;
-                                serOut.textContent = "green done";
-                                serOut.style.backgroundColor = "green"
-                            }
-                            if (count >= maxCount)
-                                return chunks;
                         }
                         break;
                     }
