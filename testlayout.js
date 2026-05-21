@@ -125,6 +125,7 @@ function myListener(x,y){
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
     //answer.classList.add('is-flipped');
+    sendQuestion();
     startTimer(120);
     category = y;
     questionNo = x;
