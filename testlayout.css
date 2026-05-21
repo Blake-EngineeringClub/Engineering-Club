@@ -314,6 +314,13 @@ body, html {
     color: red;
 }
 
+.greyed-out {
+  opacity: 0.4;
+  pointer-events: none; /* Disables all mouse interaction */
+  user-select: none;    /* Prevents text selection */
+  cursor: not-allowed;
+}
+
 /* Individual cells for the last row */
 .footer.red { background-color: #D30000; } /* Red */
 .footer.blue { background-color: #3357FF; } /* Blue */
