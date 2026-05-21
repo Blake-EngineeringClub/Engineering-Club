@@ -106,10 +106,10 @@ for (let i = 0; i < 6; i++) {
 function myListener(x,y){
     question.innerText = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
-    answerText.innerText = answers[category].answer[questionNo];
+    answerText.innerText = answers[y].answer[x];
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
-    answer.classList.add('is-flipped');
+    //answer.classList.add('is-flipped');
     startTimer(120);
     category = y;
     questionNo = x;
@@ -137,6 +137,7 @@ function startTimer(duration) {
         if (--timer < 0) {
             clearInterval(timerInterval);
             display.textContent = "DONE!";
+            answer.classList.add('is-flipped');
         }
     }, 1000); // Update every 1 second (1000ms)
 }
