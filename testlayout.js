@@ -400,11 +400,11 @@ async function redConnect() {
     }
 }
 
-// async function connectSerial() { 
-//     const filters = [
-//         { usbVendorId: 12346, usbProductId: 16385 }
-//     ];
-//     port = await navigator.serial.requestPort({filters}); 
-//     await port.open({ baudRate: 115200 });
-//     serialState = "C";
-// }
+function connectSerial() { 
+     const filters = [
+         { usbVendorId: 12346, usbProductId: 16385 }
+     ];
+     port = await navigator.serial.requestPort({filters}); 
+     await port.open({ baudRate: 115200 });
+     serialState = "C";
+ }
