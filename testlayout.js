@@ -423,8 +423,9 @@ async function redConnect() {
                     chunks += decoded; 
                     if (done || decoded.includes(EOT)) {
                          chunks = chunks.trim();
-                         console.log(chunks);
+                         
                         if (chunks != ""){
+                            console.log(chunks);
                             if (chunks == "red connected"){
                                 count++;
                                 statusRed.textContent = "red done";
