@@ -169,7 +169,8 @@ function startTimer(duration) {
 
 
 function showAnswer (event){
-    alert(answers[category].answer[questionNo]);
+    //alert(answers[category].answer[questionNo]);
+    answer.classList.add('is-flipped');
     event.stopPropagation();
 }
 
