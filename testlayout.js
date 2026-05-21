@@ -54,6 +54,8 @@ const blueScore = document.getElementById('blueScore');
 const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
 
+const timerText = document.getElementById('timer-text');
+
 const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -101,6 +103,7 @@ function myListener(x,y){
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
+    startTimer();
     category = y;
     questionNo = x;
 }
@@ -108,6 +111,27 @@ function myListener(x,y){
 function start () {
     document.getElementById('overlay').remove();
 }
+
+function startTimer(duration) {
+    clearInterval(timerInterval); // Clear any existing timer
+    let timer = duration, minutes, seconds;
+    
+    timerInterval = setInterval(() => {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        // Add leading zeros if minutes/seconds are less than 10
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerText.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);
+            display.textContent = "DONE!";
+        }
+    }, 1000); // Update every 1 second (1000ms)
+
 
 function showAnswer (event){
     alert(answers[category].answer[questionNo]);
