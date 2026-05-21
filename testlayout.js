@@ -17,6 +17,7 @@ let questionNo = 0;
 let keepReading = false;
 let count = 0;
 let state = "idle";
+let serialState = "N";
 
 const decoder = new TextDecoder();
 let port = "";
@@ -57,11 +58,14 @@ const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const filters = [
-    { usbVendorId: 12346, usbProductId: 16385 }
-];
-port = await navigator.serial.requestPort({filters}); 
-await port.open({ baudRate: 115200 });
+async function connectSerial() { 
+    const filters = [
+        { usbVendorId: 12346, usbProductId: 16385 }
+    ];
+    port = await navigator.serial.requestPort({filters}); 
+    await port.open({ baudRate: 115200 });
+    serialState = "C";
+}
 
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
@@ -212,6 +216,9 @@ async function sendReady(){
 }
 
 async function blueConnect() {
+    if (serialState == "N"){
+        await connectSerial();
+    }
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -257,7 +264,9 @@ async function blueConnect() {
     }
 }
 async function greenConnect() {
-    
+    if (serialState == "N"){
+        await connectSerial();
+    }    
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -303,6 +312,9 @@ async function greenConnect() {
     }
 }
 async function yellowConnect() {
+    if (serialState == "N"){
+        await connectSerial();
+    }
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -349,6 +361,9 @@ async function yellowConnect() {
 }
 
 async function redConnect() {
+    if (serialState == "N"){
+        await connectSerial();
+    }
     while (true) {
         if (keepReading){
         while (port.readable) {
