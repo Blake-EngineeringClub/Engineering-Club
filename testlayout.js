@@ -5,6 +5,8 @@ const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:
 const ANSWER_SHEET = 'Sheet2'; 
 const URL2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${ANSWER_SHEET}`;
 
+let EOT = "\u000A";
+
 let questions = [];
 let answers = [];
 let currentQuestionIndex = 0;
