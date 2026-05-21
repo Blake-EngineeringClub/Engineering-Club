@@ -339,7 +339,8 @@ async function blueConnect() {
                             if (chunks == "blue connected"){
                                 count++;
                                 statusBlue.textContent = "blue connected";
-                                statusBlue.style.backgroundColor = "blue"
+                                statusBlue.style.backgroundColor = "blue";
+                                return;
                             } else if(chunks == "timeout"){
                                 statusBlue.textContent = "Connection Timed out";
                                 //serOut.style.backgroundColor = "light blue"                                
@@ -388,7 +389,8 @@ async function greenConnect() {
                             if (chunks == "green connected"){
                                 count++;
                                 statusGreen.textContent = "green done";
-                                statusGreen.style.backgroundColor = "green"
+                                statusGreen.style.backgroundColor = "green";
+                                return;
                             } else if(chunks == "timeout"){
                                 statusGreen.textContent = "Connection Timed out";
                                 //serOut.style.backgroundColor = "light greed"                                
@@ -437,7 +439,8 @@ async function yellowConnect() {
                             if (chunks == "yellow connected"){
                                 count++;
                                 statusYellow.textContent = "yellow done";
-                                statusYellow.style.backgroundColor = "yellow"
+                                statusYellow.style.backgroundColor = "yellow";
+                                return;
                             } else if(chunks == "timeout"){
                                 statusYellow.textContent = "Connection Timed out";
                                 //serOut.style.backgroundColor = "light yellow"                                
@@ -491,7 +494,8 @@ async function redConnect() {
                             if (chunks == "red connected"){
                                 count++;
                                 statusRed.textContent = "red done";
-                                statusRed.style.backgroundColor = "red"
+                                statusRed.style.backgroundColor = "red";
+                                return;
                             } else if(chunks == "timeout"){
                                 statusRed.textContent = "Connection Timed out";
                                 //serOut.style.backgroundColor = " light red"                                
