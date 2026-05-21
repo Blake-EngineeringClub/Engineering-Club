@@ -536,6 +536,7 @@ async function connectSerial() {
  }
 
 function ansRed(){
+    clearInterval(timerInterval);
 //    redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
@@ -546,6 +547,7 @@ function ansRed(){
 }
 
 function ansBlue(){
+    clearInterval(timerInterval);
     redBox.classList.add('greyed-out');
     //blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
@@ -556,6 +558,7 @@ function ansBlue(){
 }
 
 function ansGreen(){
+    clearInterval(timerInterval);
     redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     //greenBox.classList.add('greyed-out');
@@ -566,6 +569,7 @@ function ansGreen(){
 }
 
 function ansYellow(){
+    clearInterval(timerInterval);
     redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
@@ -576,6 +580,7 @@ function ansYellow(){
 }
 
 function resetBoxes(){
+    clearInterval(timerInterval);
     redBox.classList.remove('greyed-out');
     blueBox.classList.remove('greyed-out');
     greenBox.classList.remove('greyed-out');
