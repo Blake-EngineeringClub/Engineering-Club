@@ -239,7 +239,7 @@ async function fetchAnswers() {
 }
 
 async function sendRed(){
-    await reader.cancel();    
+    //await reader.cancel();    
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
