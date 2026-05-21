@@ -85,7 +85,7 @@ questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
     header.classList.remove('is-flipped');
     answer.classList.remove('is-flipped');
-     timerText.textContent = ""
+    timerText.textContent = "";
     sendReady();
 });
 
