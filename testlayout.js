@@ -239,7 +239,10 @@ async function fetchAnswers() {
 }
 
 async function sendRed(){
+    keepReading = true;
+    await readFromSerial();
     keepReading = false;
+    await reader.cancel();    
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
@@ -251,7 +254,10 @@ async function sendRed(){
 }
 
 async function sendBlue(){
+    keepReading = true;
+    await readFromSerial();
     keepReading = false;
+    await reader.cancel();
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
@@ -263,8 +269,10 @@ async function sendBlue(){
 }
 
 async function sendGreen(){
+    keepReading = true;
+    await readFromSerial();
     keepReading = false;
-    const textEncoder = new TextEncoderStream();
+    await reader.cancel();    const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
     await writer.write("connectGreen\n"); 
@@ -275,8 +283,10 @@ async function sendGreen(){
 }
 
 async function sendYellow(){
+    keepReading = true;
+    await readFromSerial();
     keepReading = false;
-    const textEncoder = new TextEncoderStream();
+    await reader.cancel();    const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
     await writer.write("connectYellow\n"); 
@@ -288,7 +298,10 @@ async function sendYellow(){
 
 
 async function sendReady(){
+    keepReading = true;
+    await readFromSerial();
     keepReading = false;
+    await reader.cancel();
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
     const writer = textEncoder.writable.getWriter();
