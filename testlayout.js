@@ -90,7 +90,7 @@ for (let i = 0; i < 6; i++) {
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
-        let x = this.myListener.bind(this,i,j);
+        let x = myListener.bind(i,j);
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x);
     }
