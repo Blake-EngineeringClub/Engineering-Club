@@ -132,11 +132,11 @@ function startTimer(duration) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         timerText.textContent = minutes + ":" + seconds;
-        console.log(minutes + ":" + seconds)
+        //console.log(minutes + ":" + seconds)
 
         if (--timer < 0) {
             clearInterval(timerInterval);
-            display.textContent = "DONE!";
+            timerText.textContent = "DONE!";
             answer.classList.add('is-flipped');
         }
     }, 1000); // Update every 1 second (1000ms)
