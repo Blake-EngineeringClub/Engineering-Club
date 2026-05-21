@@ -239,9 +239,6 @@ async function fetchAnswers() {
 }
 
 async function sendRed(){
-    keepReading = true;
-    await readFromSerial();
-    keepReading = false;
     await reader.cancel();    
     const textEncoder = new TextEncoderStream();
     const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
