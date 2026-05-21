@@ -99,7 +99,7 @@ questionBox.addEventListener('click', (event) => {
     header.classList.remove('is-flipped');
     answer.classList.remove('is-flipped');
     timerText.textContent = "";
-    answerText.removeEventListener('click',showAnswer);
+    timerText.removeEventListener('click',showAnswer);
     resetBoxes();
     sendReady();
 });
@@ -125,7 +125,7 @@ function myListener(x,y){
     answerText.innerText = answers[y].answer[x];
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
-    answerText.addEventListener('click',showAnswer);
+    //answerText.addEventListener('click',showAnswer);
     //answer.classList.add('is-flipped');
     sendQuestion();
     startTimer(120);
@@ -164,6 +164,7 @@ function startTimer(duration) {
         if (--timer < 0) {
             clearInterval(timerInterval);
             timerText.textContent = "Show Answer";
+            timerText.addEventListener('click',showAnswer);
             //answer.classList.add('is-flipped');
         }
     }, 1000); // Update every 1 second (1000ms)
@@ -539,6 +540,8 @@ function ansRed(){
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
+    timerText.textContent = "Show Answer";
+    timerText.addEventListener('click',showAnswer);
 
 }
 
@@ -547,6 +550,8 @@ function ansBlue(){
     //blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
+    timerText.textContent = "Show Answer";
+    timerText.addEventListener('click',showAnswer);
 
 }
 
@@ -555,6 +560,8 @@ function ansGreen(){
     blueBox.classList.add('greyed-out');
     //greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
+    timerText.textContent = "Show Answer";
+    timerText.addEventListener('click',showAnswer);
 
 }
 
@@ -563,6 +570,8 @@ function ansYellow(){
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     //yellowBox.classList.add('greyed-out');
+    timerText.textContent = "Show Answer";
+    timerText.addEventListener('click',showAnswer);
 
 }
 
@@ -571,6 +580,8 @@ function resetBoxes(){
     blueBox.classList.remove('greyed-out');
     greenBox.classList.remove('greyed-out');
     yellowBox.classList.remove('greyed-out');
+    timerText.textContent = "";
+    timerText.removeEventListener('click',showAnswer);
 }
 
 async function readFromSerial() {
