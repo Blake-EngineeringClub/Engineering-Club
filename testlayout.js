@@ -453,6 +453,7 @@ async function connectSerial() {
      port = await navigator.serial.requestPort({filters}); 
      await port.open({ baudRate: 115200 });
      serialState = "C";
+     return serialState;
  }
 
 function ansRed(){
