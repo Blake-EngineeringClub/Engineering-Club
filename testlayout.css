@@ -198,7 +198,7 @@ body, html {
 }
 
 .answer-front{
-  background-color: #bbb;
+  background-color: darkblue;
   color: black;
 }
 
@@ -248,6 +248,8 @@ body, html {
   background-color: dodgerblue;
   color: white;
   transform: rotateX(180deg);
+  display: grid;
+  grid-template-rows: 1fr 1fr; 
 }
 
 .question h1 {
