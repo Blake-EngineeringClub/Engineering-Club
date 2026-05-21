@@ -401,7 +401,7 @@ async function yellowConnect() {
 
 async function redConnect() {
     if (serialState == "N"){
-        await connectSerial();
+        connectSerial();
     }
     while (true) {
         if (keepReading){
