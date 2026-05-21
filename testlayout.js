@@ -60,6 +60,8 @@ const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+let timerInterval;
+
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
 blueMinus.addEventListener('click',bmclick);
@@ -125,6 +127,7 @@ function startTimer(duration) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         timerText.textContent = minutes + ":" + seconds;
+        console.log(minutes + ":" + seconds)
 
         if (--timer < 0) {
             clearInterval(timerInterval);
