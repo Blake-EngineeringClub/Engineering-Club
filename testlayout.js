@@ -129,6 +129,7 @@ function start () {
 
 function startTimer(duration) {
     clearInterval(timerInterval); // Clear any existing timer
+    timerText.textContent = "";
     let timer = duration, minutes, seconds;
     
     timerInterval = setInterval(() => {
