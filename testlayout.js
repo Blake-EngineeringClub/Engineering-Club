@@ -324,7 +324,7 @@ async function greenConnect() {
                     if (done || decoded.includes(EOT)) {
                          chunks = chunks.trim();
                         if (chunks != ""){
-                            if (chunks == "red connected"){
+                            if (chunks == "green connected"){
                                 count++;
                                 statusGreen.textContent = "green done";
                                 statusGreen.style.backgroundColor = "green"
@@ -413,14 +413,15 @@ async function redConnect() {
                 reader = port.readable.getReader();
             }
             let chunks = '';
-            console.log("reading started")
+            //console.log("reading started")
             try {
                 while (true) {
                     const { value, done } = await reader.read();
                     const decoded = decoder.decode(value);
-                    chunks += decoded;                
+                    chunks += decoded; 
                     if (done || decoded.includes(EOT)) {
                          chunks = chunks.trim();
+                         console.log(chunks);
                         if (chunks != ""){
                             if (chunks == "red connected"){
                                 count++;
