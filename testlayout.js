@@ -70,7 +70,7 @@ const yellowScore = document.getElementById('yellowScore');
 
 const timerText = document.getElementById('timer-text');
 
-const answerBtn = document.getElementById('answerBtn');
+//const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -84,7 +84,7 @@ greenMinus.addEventListener('click',gmclick);
 greenPlus.addEventListener('click',gpclick);
 yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
-answerBtn.addEventListener('click',showAnswer);
+//answerBtn.addEventListener('click',showAnswer);
 
 startBtn.addEventListener('click', start);
 connectBtn.addEventListener('click', connect);
@@ -99,6 +99,7 @@ questionBox.addEventListener('click', (event) => {
     header.classList.remove('is-flipped');
     answer.classList.remove('is-flipped');
     timerText.textContent = "";
+    answerText.removeEventListener('click',showAnswer);
     resetBoxes();
     sendReady();
 });
@@ -124,6 +125,7 @@ function myListener(x,y){
     answerText.innerText = answers[y].answer[x];
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
+    answerText.addEventListener('click',showAnswer);
     //answer.classList.add('is-flipped');
     sendQuestion();
     startTimer(120);
@@ -161,8 +163,8 @@ function startTimer(duration) {
 
         if (--timer < 0) {
             clearInterval(timerInterval);
-            timerText.textContent = "DONE!";
-            answer.classList.add('is-flipped');
+            timerText.textContent = "Show Answer";
+            //answer.classList.add('is-flipped');
         }
     }, 1000); // Update every 1 second (1000ms)
 }
