@@ -184,7 +184,7 @@ body, html {
     transform-style: preserve-3d;
 }
 
-.answer.is-flipped .answer-inner {
+.answer-main.is-flipped .answer-inner {
   transform: rotateX(-180deg);
 }
 
