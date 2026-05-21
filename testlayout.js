@@ -34,6 +34,11 @@ const connectRed = document.getElementById('red_connect');
 const connectBlue = document.getElementById('blue_connect');
 const connectGreen = document.getElementById('green_connect');
 const connectYellow = document.getElementById('yellow_connect');
+const statusRed = document.getElementById('red_status');
+const statusBlue = document.getElementById('blue_status');
+const statusGreen = document.getElementById('green_status');
+const statusYellow = document.getElementById('yellow_status');
+
 const startBtn = document.getElementById('start');
 
 const question = document.getElementById('question');
@@ -267,11 +272,11 @@ async function blueConnect() {
                         if (chunks != ""){
                             if (chunks == "blue connected"){
                                 count++;
-                                serOut.textContent = "blue done";
-                                serOut.style.backgroundColor = "blue"
+                                statusBlue.textContent = "blue connected";
+                                statusBlue.style.backgroundColor = "blue"
                             } else if(chunks == "timeout"){
-                                serOut.textContent = "Connection Timed out";
-                                serOut.style.backgroundColor = "light blue"                                
+                                statusBlue.textContent = "Connection Timed out";
+                                //serOut.style.backgroundColor = "light blue"                                
                             }
                         }
                         break;
@@ -315,11 +320,11 @@ async function greenConnect() {
                         if (chunks != ""){
                             if (chunks == "red connected"){
                                 count++;
-                                serOut.textContent = "green done";
-                                serOut.style.backgroundColor = "green"
+                                statusGreen.textContent = "green done";
+                                statusGreen.style.backgroundColor = "green"
                             } else if(chunks == "timeout"){
-                                serOut.textContent = "Connection Timed out";
-                                serOut.style.backgroundColor = "light greed"                                
+                                statusGreen.textContent = "Connection Timed out";
+                                //serOut.style.backgroundColor = "light greed"                                
                             }
                         }
                         break;
@@ -363,11 +368,11 @@ async function yellowConnect() {
                         if (chunks != ""){
                             if (chunks == "yellow connected"){
                                 count++;
-                                serOut.textContent = "yellow done";
-                                serOut.style.backgroundColor = "yellow"
+                                statusYellow.textContent = "yellow done";
+                                statusYellow.style.backgroundColor = "yellow"
                             } else if(chunks == "timeout"){
-                                serOut.textContent = "Connection Timed out";
-                                serOut.style.backgroundColor = "light yellow"                                
+                                statusYellow.textContent = "Connection Timed out";
+                                //serOut.style.backgroundColor = "light yellow"                                
                             }
                         }
                         break;
@@ -412,11 +417,11 @@ async function redConnect() {
                         if (chunks != ""){
                             if (chunks == "red connected"){
                                 count++;
-                                serOut.textContent = "red done";
-                                serOut.style.backgroundColor = "red"
+                                statusRed.textContent = "red done";
+                                statusRed.style.backgroundColor = "red"
                             } else if(chunks == "timeout"){
-                                serOut.textContent = "Connection Timed out";
-                                serOut.style.backgroundColor = " light red"                                
+                                statusRed.textContent = "Connection Timed out";
+                                //serOut.style.backgroundColor = " light red"                                
                             }
                         }
                         break;
