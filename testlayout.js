@@ -133,6 +133,7 @@ function myListener(x,y){
 
 function start () {
     document.getElementById('overlay').remove();
+    sendReady();
 }
 
 function connect() {
