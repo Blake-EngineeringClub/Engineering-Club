@@ -131,6 +131,7 @@ function startTimer(duration) {
             display.textContent = "DONE!";
         }
     }, 1000); // Update every 1 second (1000ms)
+}
 
 
 function showAnswer (event){
