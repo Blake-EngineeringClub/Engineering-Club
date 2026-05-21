@@ -42,6 +42,7 @@ const statusGreen = document.getElementById('green_status');
 const statusYellow = document.getElementById('yellow_status');
 
 const startBtn = document.getElementById('start');
+const connectBtn = document.getElementById('connect');
 
 const question = document.getElementById('question');
 const answer = document.getElementById('answer-main');
@@ -86,6 +87,7 @@ yellowPlus.addEventListener('click',ypclick);
 answerBtn.addEventListener('click',showAnswer);
 
 startBtn.addEventListener('click', start);
+connectBtn.addEventListener('click', connect);
 
 connectRed.addEventListener('click', redConnect);
 connectBlue.addEventListener('click', blueConnect);
@@ -130,6 +132,11 @@ function myListener(x,y){
 
 function start () {
     document.getElementById('overlay').remove();
+}
+
+function connect() {
+    connectSerial();
+    document.getElementById('overlay2').remove();
 }
 
 function startTimer(duration) {
