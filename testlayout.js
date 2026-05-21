@@ -413,6 +413,7 @@ async function redConnect() {
                 reader = port.readable.getReader();
             }
             let chunks = '';
+            console.log("reading started")
             try {
                 while (true) {
                     const { value, done } = await reader.read();
@@ -453,6 +454,7 @@ async function connectSerial() {
      port = await navigator.serial.requestPort({filters}); 
      await port.open({ baudRate: 115200 });
      serialState = "C";
+     console.log("connected");
      return serialState;
  }
 
