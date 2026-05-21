@@ -464,7 +464,7 @@ async function redConnect() {
         connectSerial();
     }
     sendRed();
-    console.log("connect red");
+    console.log(keepreading);
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -477,7 +477,7 @@ async function redConnect() {
                 reader = port.readable.getReader();
             }
             let chunks = '';
-            //console.log("reading started")
+            console.log("reading started")
             try {
                 while (true) {
                     const { value, done } = await reader.read();
