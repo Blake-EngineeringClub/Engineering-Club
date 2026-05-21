@@ -48,6 +48,7 @@ const questionBox = document.getElementById('questionBox');
 const qtitle = document.getElementById('header-back');
 const header = document.getElementById('header');
 const main = document.getElementById('main');
+const redBox = document.getElementById('main');
 const redMinus = document.getElementById('redMinus');
 const redPlus = document.getElementById('redPlus');
 const blueMinus = document.getElementById('blueMinus');
@@ -91,6 +92,7 @@ questionBox.addEventListener('click', (event) => {
     header.classList.remove('is-flipped');
     answer.classList.remove('is-flipped');
     timerText.textContent = "";
+    resetBoxes();
     sendReady();
 });
 
@@ -448,3 +450,106 @@ async function connectSerial() {
      await port.open({ baudRate: 115200 });
      serialState = "C";
  }
+
+function ansRed(){
+//    redBox.classList.add('greyed-out');
+    blueBox.classList.add('greyed-out');
+    greenBox.classList.add('greyed-out');
+    yellowBox.classList.add('greyed-out');
+
+}
+
+function ansBlue(){
+    redBox.classList.add('greyed-out');
+    //blueBox.classList.add('greyed-out');
+    greenBox.classList.add('greyed-out');
+    yellowBox.classList.add('greyed-out');
+
+}
+
+function ansGreen(){
+    redBox.classList.add('greyed-out');
+    blueBox.classList.add('greyed-out');
+    //greenBox.classList.add('greyed-out');
+    yellowBox.classList.add('greyed-out');
+
+}
+
+function ansYellow(){
+    redBox.classList.add('greyed-out');
+    blueBox.classList.add('greyed-out');
+    greenBox.classList.add('greyed-out');
+    //yellowBox.classList.add('greyed-out');
+
+}
+
+function resetBoxes(){
+    redBox.classList.remove('greyed-out');
+    blueBox.classList.remove('greyed-out');
+    greenBox.classList.remove('greyed-out');
+    yellowBox.classList.remove('greyed-out');
+}
+
+async function readFromSerial() {
+    while (true) {
+
+        if (keepReading){
+        while (port.readable) {
+            if (port.readable.locked){
+                reader.cancel();
+                await reader.releaseLock();
+                reader = port.readable.getReader();
+            }
+            else{
+                reader = port.readable.getReader();
+            }
+            let chunks = '';
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    const decoded = decoder.decode(value);
+                    chunks += decoded;
+                    if (done || decoded.includes(EOT)) {
+                        chunks = chunks.trim();
+                        console.log(chunks);
+                        chunks = chunks.split("\n")[0].trim();
+                        if (chunks != "")
+                            //serOut.textContent = chunks;
+                            if (chunks == "yellow"){
+                                ansYellow();
+                                //serOut.textContent = "yellow button pressed";
+                                //serOut.style.backgroundColor = "yellow"
+                            }
+                            if (chunks == "blue"){
+                                ansBlue();
+                               // serOut.textContent = "blue button pressed";
+                                //serOut.style.backgroundColor = "blue"
+                            }
+                            if (chunks == "red"){
+                                ansRed();
+                                //serOut.textContent = "red button pressed";
+                                //serOut.style.backgroundColor = "red"
+                            }
+                            if (chunks == "green"){
+                                ansGreen();
+                               // serOut.textContent = "green button pressed";
+                               // serOut.style.backgroundColor = "green"
+                            }
+                            return chunks;
+                        break;
+                    }
+                }
+                if (chunks != "")
+                    serOut.textContent = chunks;
+            } catch (error) {
+                console.error(error);
+                throw error;
+            } finally {
+                keepReading = true;
+            }
+            await sleep(10); 
+        }  
+    }
+        await sleep(10); 
+    }
+}
