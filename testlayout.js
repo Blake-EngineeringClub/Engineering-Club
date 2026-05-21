@@ -463,6 +463,7 @@ async function redConnect() {
         connectSerial();
     }
     sendRed();
+    console.log("connect red");
     while (true) {
         if (keepReading){
         while (port.readable) {
