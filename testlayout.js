@@ -127,6 +127,7 @@ function myListener(x,y){
     //answer.classList.add('is-flipped');
     sendQuestion();
     startTimer(120);
+    readFromSerial();
     category = y;
     questionNo = x;
 }
