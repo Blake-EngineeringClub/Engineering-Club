@@ -400,7 +400,7 @@ async function redConnect() {
     }
 }
 
-function connectSerial() { 
+async function connectSerial() { 
      const filters = [
          { usbVendorId: 12346, usbProductId: 16385 }
      ];
