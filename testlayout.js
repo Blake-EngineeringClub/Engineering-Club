@@ -37,6 +37,8 @@ const connectYellow = document.getElementById('yellow_connect');
 const startBtn = document.getElementById('start');
 
 const question = document.getElementById('question');
+const answer = document.getElementById('answer-main');
+const answerText = document.getElementById('answer-text');
 const questionBox = document.getElementById('questionBox');
 const qtitle = document.getElementById('header-back');
 const header = document.getElementById('header');
@@ -82,6 +84,7 @@ connectYellow.addEventListener('click', yellowConnect);
 questionBox.addEventListener('click', (event) => {
     main.classList.remove('is-flipped');
     header.classList.remove('is-flipped');
+    answer.classList.remove('is-flipped');
     sendReady();
 });
 
@@ -103,8 +106,10 @@ for (let i = 0; i < 6; i++) {
 function myListener(x,y){
     question.innerText = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
+    answerText.innerText = answers[category].answer[questionNo];
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
+    answer.classList.add('is-flipped');
     startTimer(120);
     category = y;
     questionNo = x;
