@@ -137,6 +137,7 @@ function start () {
 function connect() {
     connectSerial();
     document.getElementById('overlay2').remove();
+    keepreading = true;
 }
 
 function startTimer(duration) {
