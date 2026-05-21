@@ -90,10 +90,19 @@ for (let i = 0; i < 6; i++) {
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
-        let x = myListener.bind(i,j);
+        let x = this.myListener.bind(this,i,j);
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x);
     }
+}
+
+function myListener(x,y){
+    question.innerText = questions[y].question[x];
+    qtitle.innerText = questions[0].question[x]+" "+ (y*100);
+    main.classList.add('is-flipped');
+    header.classList.add('is-flipped');
+    category = y;
+    questionNo = x;
 }
 
 function start () {
@@ -171,15 +180,6 @@ async function fetchAnswers() {
         } catch (error) {
             console.error("Error fetching data:", error);
         }
-}
-
-function myListener(x,y){
-    question.innerText = questions[y].question[x];
-    qtitle.innerText = questions[0].question[x]+" "+ (y*100);
-    main.classList.add('is-flipped');
-    header.classList.add('is-flipped');
-    category = y;
-    questionNo = x;
 }
 
 async function sendReady(){
