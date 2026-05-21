@@ -230,6 +230,55 @@ async function fetchAnswers() {
         }
 }
 
+async function sendRed(){
+    keepReading = false;
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    const writer = textEncoder.writable.getWriter();
+    await writer.write("connectRed\n"); 
+    writer.close();
+    await writableStreamClosed;      
+    writer.releaseLock();
+    keepReading = true;
+}
+
+async function sendBlue(){
+    keepReading = false;
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    const writer = textEncoder.writable.getWriter();
+    await writer.write("connectBlue\n"); 
+    writer.close();
+    await writableStreamClosed;      
+    writer.releaseLock();
+    keepReading = true;
+}
+
+async function sendGreen(){
+    keepReading = false;
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    const writer = textEncoder.writable.getWriter();
+    await writer.write("connectGreen\n"); 
+    writer.close();
+    await writableStreamClosed;      
+    writer.releaseLock();
+    keepReading = true;
+}
+
+async function sendYellow(){
+    keepReading = false;
+    const textEncoder = new TextEncoderStream();
+    const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+    const writer = textEncoder.writable.getWriter();
+    await writer.write("connectYellow\n"); 
+    writer.close();
+    await writableStreamClosed;      
+    writer.releaseLock();
+    keepReading = true;
+}
+
+
 async function sendReady(){
     keepReading = false;
     const textEncoder = new TextEncoderStream();
@@ -256,8 +305,9 @@ async function sendReady(){
 
 async function blueConnect() {
     if (serialState == "N"){
-        await connectSerial();
+        connectSerial();
     }
+    sendBlue();
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -304,8 +354,9 @@ async function blueConnect() {
 }
 async function greenConnect() {
     if (serialState == "N"){
-        await connectSerial();
-    }    
+        connectSerial();
+    }
+    sendGreen();
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -352,8 +403,9 @@ async function greenConnect() {
 }
 async function yellowConnect() {
     if (serialState == "N"){
-        await connectSerial();
+        connectSerial();
     }
+    sendYellow();
     while (true) {
         if (keepReading){
         while (port.readable) {
@@ -403,6 +455,7 @@ async function redConnect() {
     if (serialState == "N"){
         connectSerial();
     }
+    sendRed();
     while (true) {
         if (keepReading){
         while (port.readable) {
