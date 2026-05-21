@@ -58,15 +58,6 @@ const answerBtn = document.getElementById('answerBtn');
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-async function connectSerial() { 
-    const filters = [
-        { usbVendorId: 12346, usbProductId: 16385 }
-    ];
-    port = await navigator.serial.requestPort({filters}); 
-    await port.open({ baudRate: 115200 });
-    serialState = "C";
-}
-
 redMinus.addEventListener('click',rmclick);
 redPlus.addEventListener('click',rpclick);
 blueMinus.addEventListener('click',bmclick);
@@ -407,4 +398,13 @@ async function redConnect() {
     }
         await sleep(10); 
     }
+}
+
+async function connectSerial() { 
+    const filters = [
+        { usbVendorId: 12346, usbProductId: 16385 }
+    ];
+    port = await navigator.serial.requestPort({filters}); 
+    await port.open({ baudRate: 115200 });
+    serialState = "C";
 }
