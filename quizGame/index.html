@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4x4 Grid Layout</title>
+    <link rel="stylesheet" href="quizGame.css">
+    <script src="quizGame.js" defer></script>
+</head>
+<body>
+    <div id = "overlay2">
+         <button class="connect_btn" id="connect">Connect</button>   
+    </div>
 
+    
+    <div id="overlay">
+          <div class="content">
+            <div class="flex-container">
+              <div class="flex-button" id="red_connect" style="background-color: darkred">Connect Red</div>
+              <div class="flex-status" id="red_status" style="background-color: #EAA1A4"> Waiting </div>   
+            </div>    
+            <div class="flex-container">
+              <div class="flex-button" id="blue_connect" style="background-color: darkblue">Connect Blue</div>
+              <div class="flex-status" id="blue_status" style="background-color: #AEBCD8"> Waiting </div>   
+            </div> 
+            <div class="flex-container">
+              <div class="flex-button" id="green_connect" style="background-color: darkgreen">Connect Green</div>
+              <div class="flex-status" id="green_status" style="background-color: #BDD8AE"> Waiting </div>   
+            </div>
+            <div class="flex-container">
+              <div class="flex-button" id="yellow_connect" style="background-color: #8B8000">Connect Yellow</div>
+              <div class="flex-status" id="yellow_status" style="background-color: #E1E3BC"> Waiting </div>   
+            </div>
+            <button class="connect_btn" id="start">Start Game</button>
+          </div>
+    </div>
+    <div class="grid-container">
+        <div class="item header" id ="header">
+            <div class="header-inner" id="header-inner">
+                <div class="header-front" id="header-front">
+                    Blake Middle School Trivia
+                </div>
+                 <div class="header-back" id="header-back">
+                    Blake Middle School Trivia
+                </div>
+            </div>
+        </div>
+        <div class="item main" id="main">
+            <div class="main-inner">
+                <div class="menu board">
+        
+                    <div class="category">Art and Music</div>
+                    <div class="category">Comp Sci and Robotics</div>
+                    <div class="category">English and Social Studies</div>
+                    <div class="category">Math and <br>Science</div>
+                    <div class="category">PE and Wellness</div>
+                    <div class="category">Languages</div>
+                    
+                      <!-- Clue Values (Repeat for 5 rows) -->
+                    <div class="clue" id="questionA1">100</div>
+                    <div class="clue" id="questionB1">100</div>
+                    <div class="clue" id="questionC1">100</div>
+                    <div class="clue" id="questionD1">100</div>
+                    <div class="clue" id="questionE1">100</div>
+                    <div class="clue" id="questionF1">100</div>
+        
+                    <div class="clue" id="questionA2">200</div>
+                    <div class="clue" id="questionB2">200</div>
+                    <div class="clue" id="questionC2">200</div>
+                    <div class="clue" id="questionD2">200</div>
+                    <div class="clue" id="questionE2">200</div>
+                    <div class="clue" id="questionF2">200</div>
+        
+                    <div class="clue" id="questionA3">300</div>
+                    <div class="clue" id="questionB3">300</div>
+                    <div class="clue" id="questionC3">300</div>
+                    <div class="clue" id="questionD3">300</div>
+                    <div class="clue" id="questionE3">300</div>
+                    <div class="clue" id="questionF3">300</div>
+        
+                    <div class="clue" id="questionA4">400</div>
+                    <div class="clue" id="questionB4">400</div>
+                    <div class="clue" id="questionC4">400</div>
+                    <div class="clue" id="questionD4">400</div>
+                    <div class="clue" id="questionE4">400</div>
+                    <div class="clue" id="questionF4">400</div>
+        
+                    <div class="clue" id="questionA5">500</div>
+                    <div class="clue" id="questionB5">500</div>
+                    <div class="clue" id="questionC5">500</div>
+                    <div class="clue" id="questionD5">500</div>
+                    <div class="clue" id="questionE5">500</div>
+                    <div class="clue" id="questionF5">500</div>
+                        
+                    
+                    
+                </div>
+                <div class="question" id="questionBox">
+                    <div id="questionText">
+                        <p id="question"></p>
+                    </div>
+                    <div class="answer-main" id="answer-main">
+                        <div class="answer-inner" id="answer-inner">
+                            <div class="answer-front" id="timerBox">
+                                <div class="answer-text" id="timer-text"></div>
+                                <!-- button id="answerBtn">Show Answer</button -->
+                            </div>
+                            <div class="answer-back" id="answerBox">
+                                <div id="answer-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div class="item footer red" id="red-box">
+            <div class="house">Respect</div>
+            <div class="score" id="redScore">0</div>
+            <div class="minus" id="redMinus">&minus;</div>
+            <div class="plus" id="redPlus">&plus;</div>
+        </div>
+        <div class="item footer blue" id="blue-box">
+            <div class="house">Courage</div>
+            <div class="score" id="blueScore">0</div>
+            <div class="minus" id="blueMinus">&minus;</div>
+            <div class="plus" id="bluePlus">&plus;</div>
+        </div>
+        <div class="item footer green" id="green-box">
+            <div class="house">Integrity</div>
+            <div class="score" id="greenScore">0</div>
+            <div class="minus" id="greenMinus">&minus;</div>
+            <div class="plus" id="greenPlus">&plus;</div>
+        </div>
+        <div class="item footer yellow" id="yellow-box">
+            <div class="house">Curiosity</div>
+            <div class="score" id="yellowScore">0</div>
+            <div class="minus" id="yellowMinus">&minus;</div>
+            <div class="plus" id="yellowPlus">&plus;</div>
+        </div>
+    </div>
+
+</body>
+</html>
