@@ -1,0 +1,343 @@
+/* Remove default margins and make body full height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  z-index: 9000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: opacity 0.5s ease; /* Smooth fade-out effect */
+}
+
+#overlay2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: opacity 0.5s ease; /* Smooth fade-out effect */
+}
+
+.flex-container {
+     display: flex;
+}
+
+.flex-status{
+  height: 3vh;
+  width: 8vw;
+  border: none;
+  color: black;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.flex-button{
+  height: 3vh;
+  width: 8vw;
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.connect_btn{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.grid-container {
+    display: grid;
+    /* Create 4 equal columns and 4 equal rows */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    
+    /* Fill the entire viewport height */
+    height: 100vh;
+    gap: 10px; /* Optional: adds space between cells */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Common styling for all grid items */
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.board {
+  display: grid;
+  /* Creates 6 equal columns */
+  grid-template-columns: repeat(6, 1fr); 
+  /* Standard Jeopardy board has 1 header row + 5 clue rows */
+  grid-template-rows: 100px repeat(5, 1fr); 
+  gap: 10px;
+  background-color: #000; /* Black borders between cells */
+
+  height: 90%;
+}
+
+.category, .clue {
+  background-color: #060ce9; /* Classic Jeopardy blue */
+  color: #ffcc00; /* Gold text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid #000;
+}
+
+.category {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.clue {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clue:hover {
+  background-color: #1218ff;
+}
+
+/* First row spans all 4 columns */
+.header {
+    grid-column: span 4;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.header-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.header.is-flipped .header-inner {
+  transform: rotateX(-180deg);
+}
+
+.header-front, .header-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  font-size: 5rem; 
+}
+
+.header-front{
+  background-color: #bbb;
+  color: black;
+}
+
+.header-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateX(180deg);
+}
+
+/* question box */
+.answer-main {
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.answer-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.answer-main.is-flipped .answer-inner {
+  transform: rotateX(-180deg);
+}
+
+.answer-front, .answer-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  font-size: 5rem; 
+}
+
+.answer-front{
+  background-color: darkblue;
+  color: white;
+}
+
+.answer-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateX(180deg);
+}
+
+/* Second row spans 2 rows (Row 2 and 3) and 4 columns */
+.main {
+    grid-column: span 4;
+    grid-row: span 5;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.main-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.main.is-flipped .main-inner {
+  transform: rotateX(180deg);
+}
+
+
+.menu, .question {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.menu {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.question{
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateX(180deg);
+  display: grid;
+  grid-template-rows: 2fr 1fr; 
+}
+
+.question h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.question p{
+  font-size: 2rem;
+  text-align: left;
+}
+
+.footer{
+    grid-row: span 2;
+    display: grid;
+    /* Creates 6 equal columns */
+    grid-template-rows: repeat(5, 1fr); 
+    grid-template-columns: 1fr 1fr; 
+    /* Standard Jeopardy board has 1 header row + 5 clue rows */
+    gap: 10px;
+    background-color: #000; /* Black borders between cells */
+    height: 90%;        
+    container-type: inline-size;/* Coral */  
+
+}
+
+.house{
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem; /* Scales as 10% of parent width */
+}
+
+.score{
+    grid-column: span 2;
+    grid-row: span 3; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 5rem; /* Scales as 10% of parent width */
+}
+
+.plus, .minus{
+    text-align: center;
+    font-size: 2.5rem; /* Scales as 10% of parent width */
+    background-color: white;
+    border-style: solid;
+    border-width: thick;
+    border-radius: 10px;
+    color: green;
+}
+
+.plus{
+    border-color: green;
+    color: green;
+}
+
+.minus{
+    border-color: red;
+    color: red;
+}
+
+.greyed-out {
+  opacity: 0.4;
+  pointer-events: none; /* Disables all mouse interaction */
+  user-select: none;    /* Prevents text selection */
+  cursor: not-allowed;
+}
+
+/* Individual cells for the last row */
+.footer.red { background-color: #D30000; } /* Red */
+.footer.blue { background-color: #3357FF; } /* Blue */
+.footer.green { background-color: #2E8B57; } /* Green */
+.footer.yellow { background-color: #FCD12A; } /* Yellow */
