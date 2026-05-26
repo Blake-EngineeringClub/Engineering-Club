@@ -109,7 +109,6 @@ fetchAnswers();
 //console.log(questions);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
-    document.getElementById((cat[i]+"0")).innerHTML = questions[0].question[i]; 
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
@@ -226,6 +225,13 @@ async function fetchQuestions() {
         questions = json.table.rows.map(row => ({
             question: [row.c[0].v, row.c[1].v, row.c[2].v, row.c[3].v, row.c[4].v, row.c[5].v]
         }));
+        document.getElementById("questionA0").innerHTML = questions[0].question[0]; 
+        document.getElementById("questionB0").innerHTML = questions[0].question[1]; 
+        document.getElementById("questionC0").innerHTML = questions[0].question[2]; 
+        document.getElementById("questionD0").innerHTML = questions[0].question[3]; 
+        document.getElementById("questionE0").innerHTML = questions[0].question[4]; 
+        document.getElementById("questionF0").innerHTML = questions[0].question[5]; 
+        
     } catch (error) {
         console.error("Error fetching data:", error);
     }
