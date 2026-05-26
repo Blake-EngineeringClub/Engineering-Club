@@ -86,6 +86,9 @@ greenMinus.addEventListener('click',gmclick);
 greenPlus.addEventListener('click',gpclick);
 yellowMinus.addEventListener('click',ymclick);
 yellowPlus.addEventListener('click',ypclick);
+
+check.addEventListener('click',correctAns);
+wrong.addEventListener('click',wrongAns);
 //answerBtn.addEventListener('click',showAnswer);
 
 startBtn.addEventListener('click', start);
