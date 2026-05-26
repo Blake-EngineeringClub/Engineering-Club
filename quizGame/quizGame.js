@@ -1,7 +1,7 @@
 const SHEET_ID = '1gYH8w2_4_1LqHDpfAxUKgi9C9yfRyZ3sUCuGXq8qLUw'; // Replace this!
-const QUESTION_SHEET = 'Sheet1'; 
+const QUESTION_SHEET = 'Questions'; 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${QUESTION_SHEET}`;
-const ANSWER_SHEET = 'Sheet2'; 
+const ANSWER_SHEET = 'Answers'; 
 const URL2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${ANSWER_SHEET}`;
 
 let EOT = "\u000A";
