@@ -118,9 +118,9 @@ for (let i = 0; i < 6; i++) {
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
+        let x = this.myListener.bind(this,i,j);
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x,{ once: true });
-        let x = this.myListener.bind(this,i,j);
     }
 }
 
@@ -135,8 +135,8 @@ function myListener(x,y){
     sendQuestion();
     startTimer(120);
     readFromSerial();
-    clues[x,y].style.backgroundColor = "grey";
-    clues[x,y].innerText = "";
+    this.style.backgroundColor = "grey";
+    this.innerText = "";
     category = y;
     questionNo = x;
 }
