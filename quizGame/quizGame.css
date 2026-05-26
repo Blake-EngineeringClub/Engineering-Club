@@ -240,13 +240,13 @@ body, html {
 }
 
 .check{
-    background-color: darkgreen;
+    background-color: green;
     color: white;
     flex: 1;
 }
 
 .wrong{
-    background-color: darkred;
+    background-color: red;
     color: white;
     flex: 1;
 }
