@@ -611,7 +611,6 @@ function resetBoxes(){
 }
 
 function correctAns(){
-    resetQuestion();
     switch (ansColor) {
       case "red":
         reds += 100*questionNo;
@@ -629,9 +628,9 @@ function correctAns(){
         yellows += 100*questionNo;
         yellowScore.innerText = yellows;
         break;
-      default:
-        
+      default: 
     }
+    resetQuestion();
 }
 
 function wrongAns(){
@@ -654,8 +653,8 @@ function wrongAns(){
         yellowScore.innerText = yellows;
         break;
       default:
-
    }
+   resetQuestion();
 }
 
 async function readFromSerial() {
