@@ -109,7 +109,7 @@ fetchAnswers();
 //console.log(questions);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
-    document.getElementById(cat[i]+0).innerHTML = questions[i].question[0]; 
+    document.getElementById(cat[i]+0).innerHTML = questions[0].question[i]; 
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
