@@ -135,8 +135,8 @@ function myListener(x,y){
     sendQuestion();
     startTimer(120);
     readFromSerial();
-    category = y;
-    questionNo = x;
+    category = x;
+    questionNo = y;
 }
 
 function start () {
