@@ -221,6 +221,22 @@ body, html {
   background-color: dodgerblue;
   color: white;
   transform: rotateX(180deg);
+  display: flex;
+  flex-direction: row;
+}
+
+#answer-text{
+  font-size: 2rem;
+  text-align: left;
+  flex: 3;
+}
+
+#answer-button{
+  font-size: 2rem;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Second row spans 2 rows (Row 2 and 3) and 4 columns */
