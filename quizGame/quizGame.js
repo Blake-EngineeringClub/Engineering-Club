@@ -646,6 +646,8 @@ function wrongAns(){
         yellowScore.innerText = yellows;
         break;
       default:
+
+   }
 }
 
 async function readFromSerial() {
