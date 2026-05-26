@@ -136,6 +136,7 @@ function myListener(x,y){
     startTimer(120);
     readFromSerial();
     clues[x,y].style.backgroundColor = "grey";
+    clues[x,y].innerText = "";
     category = y;
     questionNo = x;
 }
