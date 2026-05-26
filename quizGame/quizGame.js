@@ -99,15 +99,7 @@ connectBlue.addEventListener('click', blueConnect);
 connectGreen.addEventListener('click', greenConnect);
 connectYellow.addEventListener('click', yellowConnect);
 
-questionBox.addEventListener('click', (event) => {
-    main.classList.remove('is-flipped');
-    header.classList.remove('is-flipped');
-    answer.classList.remove('is-flipped');
-    timerText.textContent = "";
-    timerText.removeEventListener('click',showAnswer);
-    resetBoxes();
-    sendReady();
-});
+questionBox.addEventListener('click', resetQuestion);
 
 fetchQuestions();
 fetchAnswers();
@@ -122,6 +114,18 @@ for (let i = 0; i < 6; i++) {
         clues[i][j]=document.getElementById(clueId);
         clues[i][j].addEventListener('click',x,{ once: true });
     }
+}
+
+function resetQuestion(){
+    main.classList.remove('is-flipped');
+    header.classList.remove('is-flipped');
+    answer.classList.remove('is-flipped');
+    timerText.textContent = "";
+    timerText.removeEventListener('click',showAnswer);
+    clues[category][questionNo].style.backgroundColor = "grey";
+    clues[category][questionNo].innerText = "";
+    resetBoxes();
+    sendReady();
 }
 
 function myListener(x,y){
@@ -604,11 +608,10 @@ function resetBoxes(){
     ansColor = "";
     timerText.textContent = "";
     timerText.removeEventListener('click',showAnswer);
-    clues[category][questionNo].style.backgroundColor = "grey";
-    clues[category][questionNo].innerText = "";
 }
 
 function correctAns(){
+    resetQuestion();
     switch (ansColor) {
       case "red":
         reds += 100*questionNo;
@@ -632,6 +635,7 @@ function correctAns(){
 }
 
 function wrongAns(){
+   resetQuestion();
    switch (ansColor) {
       case "red":
         reds -= 50*questionNo;
