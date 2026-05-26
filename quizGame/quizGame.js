@@ -634,7 +634,6 @@ function correctAns(){
 }
 
 function wrongAns(){
-   resetQuestion();
    switch (ansColor) {
       case "red":
         reds -= 50*questionNo;
