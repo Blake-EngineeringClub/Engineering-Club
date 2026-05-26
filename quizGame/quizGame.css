@@ -94,7 +94,6 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Common styling for all grid items */
 .item {
     display: flex;
     align-items: center;
