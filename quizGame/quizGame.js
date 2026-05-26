@@ -127,7 +127,7 @@ for (let i = 0; i < 6; i++) {
 function myListener(x,y){
     question.innerHTML = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
-    answerText.innerText = answers[y].answer[x];
+    answerText.innerHTML = answers[y].answer[x];
     main.classList.add('is-flipped');
     header.classList.add('is-flipped');
     //answerText.addEventListener('click',showAnswer);
