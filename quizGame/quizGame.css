@@ -242,11 +242,13 @@ body, html {
 .check{
     background-color: darkgreen;
     color: white;
+    flex: 1;
 }
 
 .wrong{
     background-color: darkred;
     color: white;
+    flex: 1;
 }
 
 /* Second row spans 2 rows (Row 2 and 3) and 4 columns */
