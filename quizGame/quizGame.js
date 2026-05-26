@@ -19,6 +19,7 @@ let keepReading = true;
 let count = 0;
 let state = "idle";
 let serialState = "N";
+let ansColor = "";
 
 const decoder = new TextDecoder();
 let port = "";
@@ -48,6 +49,8 @@ const answer = document.getElementById('answer-main');
 const answerText = document.getElementById('answer-text');
 const questionBox = document.getElementById('questionText');
 const qtitle = document.getElementById('header-back');
+const check = document.getElementById('check');
+const wrong = document.getElementById('wrong');
 const header = document.getElementById('header');
 const main = document.getElementById('main');
 const redBox = document.getElementById('red-box');
@@ -114,7 +117,7 @@ for (let i = 0; i < 6; i++) {
         let clueId = cat[i]+j;
         let x = this.myListener.bind(this,i,j);
         clues[i][j]=document.getElementById(clueId);
-        clues[i][j].addEventListener('click',x);
+        clues[i][j].addEventListener('click',x,{ once: true });
     }
 }
 
@@ -129,6 +132,7 @@ function myListener(x,y){
     sendQuestion();
     startTimer(120);
     readFromSerial();
+    clues[x,y].style.backgroundColor = "grey";
     category = y;
     questionNo = x;
 }
@@ -544,6 +548,7 @@ async function connectSerial() {
 function ansRed(){
     clearInterval(timerInterval);
 //    redBox.classList.add('greyed-out');
+    ansColor = "red";
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
@@ -556,6 +561,7 @@ function ansBlue(){
     clearInterval(timerInterval);
     redBox.classList.add('greyed-out');
     //blueBox.classList.add('greyed-out');
+    ansColor = "blue";
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
     timerText.textContent = "Show Answer";
@@ -568,6 +574,7 @@ function ansGreen(){
     redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     //greenBox.classList.add('greyed-out');
+    ansColor = "green";
     yellowBox.classList.add('greyed-out');
     timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
@@ -580,6 +587,7 @@ function ansYellow(){
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     //yellowBox.classList.add('greyed-out');
+    ansColor = "yellow";
     timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
 
@@ -591,8 +599,53 @@ function resetBoxes(){
     blueBox.classList.remove('greyed-out');
     greenBox.classList.remove('greyed-out');
     yellowBox.classList.remove('greyed-out');
+    ansColor = "";
     timerText.textContent = "";
     timerText.removeEventListener('click',showAnswer);
+}
+
+function correctAns(){
+    switch (ansColor) {
+      case "red":
+        reds += 100*questionNo;
+        redScore.innerText = reds;
+        break;
+      case "blue:
+        blues += 100*questionNo;
+        blueScore.innerText = blues;
+        break;
+      case "green:
+        greens += 100*questionNo;
+        greenScore.innerText = greens;
+        break;
+      case "yellow:
+        yellows += 100*questionNo;
+        yellowScore.innerText = yellows;
+        break;
+      default:
+        
+    }
+}
+
+function wrongAns(){
+   switch (ansColor) {
+      case "red":
+        reds -= 50*questionNo;
+        redScore.innerText = reds;
+        break;
+      case "blue:
+        blues -= 50*questionNo;
+        blueScore.innerText = blues;
+        break;
+      case "green:
+        greens -= 50*questionNo;
+        greenScore.innerText = greens;
+        break;
+      case "yellow:
+        yellows -= 50*questionNo;
+        yellowScore.innerText = yellows;
+        break;
+      default:
 }
 
 async function readFromSerial() {
