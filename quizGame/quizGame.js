@@ -610,15 +610,15 @@ function correctAns(){
         reds += 100*questionNo;
         redScore.innerText = reds;
         break;
-      case "blue:
+      case "blue":
         blues += 100*questionNo;
         blueScore.innerText = blues;
         break;
-      case "green:
+      case "green":
         greens += 100*questionNo;
         greenScore.innerText = greens;
         break;
-      case "yellow:
+      case "yellow":
         yellows += 100*questionNo;
         yellowScore.innerText = yellows;
         break;
@@ -633,15 +633,15 @@ function wrongAns(){
         reds -= 50*questionNo;
         redScore.innerText = reds;
         break;
-      case "blue:
+      case "blue":
         blues -= 50*questionNo;
         blueScore.innerText = blues;
         break;
-      case "green:
+      case "green":
         greens -= 50*questionNo;
         greenScore.innerText = greens;
         break;
-      case "yellow:
+      case "yellow":
         yellows -= 50*questionNo;
         yellowScore.innerText = yellows;
         break;
