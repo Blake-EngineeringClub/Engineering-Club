@@ -135,8 +135,6 @@ function myListener(x,y){
     sendQuestion();
     startTimer(120);
     readFromSerial();
-    this.style.backgroundColor = "grey";
-    this.innerText = "";
     category = y;
     questionNo = x;
 }
@@ -606,6 +604,8 @@ function resetBoxes(){
     ansColor = "";
     timerText.textContent = "";
     timerText.removeEventListener('click',showAnswer);
+    clues[category][questionNo].style.backgroundColor = "grey";
+    clues[category][questionNo].innerText = "";
 }
 
 function correctAns(){
