@@ -120,7 +120,7 @@ for (let i = 0; i < 6; i++) {
 }
 
 function myListener(x,y){
-    question.innerText = questions[y].question[x];
+    question.innerHTML = questions[y].question[x];
     qtitle.innerText = questions[0].question[x]+" "+ (y*100);
     answerText.innerText = answers[y].answer[x];
     main.classList.add('is-flipped');
