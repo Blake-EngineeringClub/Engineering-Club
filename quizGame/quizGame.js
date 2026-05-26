@@ -66,7 +66,7 @@ const redScore = document.getElementById('redScore');
 const blueScore = document.getElementById('blueScore');
 const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
-
+    
 const timerText = document.getElementById('timer-text');
 
 //const answerBtn = document.getElementById('answerBtn');
@@ -106,9 +106,10 @@ questionBox.addEventListener('click', (event) => {
 fetchQuestions();
 fetchAnswers();
 
-console.log(questions);
+//console.log(questions);
 let cat = ["questionA","questionB","questionC","questionD","questionE","questionF"];
 for (let i = 0; i < 6; i++) {
+    document.getElementById(cat[i]+0).innerHTML = questions[i].question[0]; 
     clues[i]=[];
     for (let j = 1; j < 6; j++) {
         let clueId = cat[i]+j;
