@@ -582,7 +582,7 @@ async function connectSerial() {
 function ansRed(){
     clearInterval(timerInterval);
     ansColor = "red";
-    timerbox.style.backgroundColor = ansColor;
+    timerBox.style.backgroundColor = ansColor;
     answerTimer(answerDuration);
     
 //    redBox.classList.add('greyed-out');
@@ -597,7 +597,7 @@ function ansRed(){
 function ansBlue(){
     clearInterval(timerInterval);
     ansColor = "blue";
-    timerbox.style.backgroundColor = ansColor;
+    timerBox.style.backgroundColor = ansColor;
     answerTimer(answerDuration);
     
     redBox.classList.add('greyed-out');
@@ -612,7 +612,7 @@ function ansBlue(){
 function ansGreen(){
     clearInterval(timerInterval);
     ansColor = "green";
-    timerbox.style.backgroundColor = ansColor;
+    timerBox.style.backgroundColor = ansColor;
     answerTimer(answerDuration);
     
     redBox.classList.add('greyed-out');
@@ -627,7 +627,7 @@ function ansGreen(){
 function ansYellow(){
     clearInterval(timerInterval);
     ansColor = "yellow";
-    timerbox.style.backgroundColor = ansColor;
+    timerBox.style.backgroundColor = ansColor;
     answerTimer(answerDuration);
     
     redBox.classList.add('greyed-out');
