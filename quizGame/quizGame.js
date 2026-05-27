@@ -74,7 +74,7 @@ const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
     
 const timerText = document.getElementById('timer-text');
-const timerBox = document.getElementById('answer-inner');
+const timerBox = document.getElementById('answer-front');
 
 //const answerBtn = document.getElementById('answerBtn');
 
