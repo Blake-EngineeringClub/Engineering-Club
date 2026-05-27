@@ -21,6 +21,9 @@ let state = "idle";
 let serialState = "N";
 let ansColor = "";
 
+const questionDuration = 120;
+const answerDuration = 15;
+
 const decoder = new TextDecoder();
 let port = "";
 
@@ -71,6 +74,7 @@ const greenScore = document.getElementById('greenScore');
 const yellowScore = document.getElementById('yellowScore');
     
 const timerText = document.getElementById('timer-text');
+const timerBox = document.getElementById('answer-inner');
 
 //const answerBtn = document.getElementById('answerBtn');
 
@@ -137,7 +141,7 @@ function myListener(x,y){
     //answerText.addEventListener('click',showAnswer);
     //answer.classList.add('is-flipped');
     sendQuestion();
-    startTimer(120);
+    startTimer(questionDuration);
     readFromSerial();
     category = x;
     questionNo = y;
@@ -179,6 +183,30 @@ function startTimer(duration) {
     }, 1000); // Update every 1 second (1000ms)
 }
 
+function answertTimer(duration) {
+    clearInterval(timerInterval); // Clear any existing timer
+    timerText.textContent = "";
+    let timer = duration, minutes, seconds;
+    
+    timerInterval = setInterval(() => {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        // Add leading zeros if minutes/seconds are less than 10
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerText.textContent = minutes + ":" + seconds;
+        //console.log(minutes + ":" + seconds)
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);
+            timerText.textContent = "Show Answer";
+            timerText.addEventListener('click',showAnswer);
+            //answer.classList.add('is-flipped');
+        }
+    }, 1000); // Update every 1 second (1000ms)
+}
 
 function showAnswer (event){
     //alert(answers[category].answer[questionNo]);
@@ -553,48 +581,60 @@ async function connectSerial() {
 
 function ansRed(){
     clearInterval(timerInterval);
-//    redBox.classList.add('greyed-out');
     ansColor = "red";
+    timerbox.style.backgroundColor = ansColor;
+    answerTimer(answerDuration);
+    
+//    redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
-    timerText.textContent = "Show Answer";
+    //timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
 
 }
 
 function ansBlue(){
     clearInterval(timerInterval);
+    ansColor = "blue";
+    timerbox.style.backgroundColor = ansColor;
+    answerTimer(answerDuration);
+    
     redBox.classList.add('greyed-out');
     //blueBox.classList.add('greyed-out');
-    ansColor = "blue";
     greenBox.classList.add('greyed-out');
     yellowBox.classList.add('greyed-out');
-    timerText.textContent = "Show Answer";
+    //timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
 
 }
 
 function ansGreen(){
     clearInterval(timerInterval);
+    ansColor = "green";
+    timerbox.style.backgroundColor = ansColor;
+    answerTimer(answerDuration);
+    
     redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     //greenBox.classList.add('greyed-out');
-    ansColor = "green";
     yellowBox.classList.add('greyed-out');
-    timerText.textContent = "Show Answer";
+    //timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
 
 }
 
 function ansYellow(){
     clearInterval(timerInterval);
+    ansColor = "yellow";
+    timerbox.style.backgroundColor = ansColor;
+    answerTimer(answerDuration);
+    
     redBox.classList.add('greyed-out');
     blueBox.classList.add('greyed-out');
     greenBox.classList.add('greyed-out');
     //yellowBox.classList.add('greyed-out');
-    ansColor = "yellow";
-    timerText.textContent = "Show Answer";
+    //timerText.textContent = "Show Answer";
     timerText.addEventListener('click',showAnswer);
 
 }
