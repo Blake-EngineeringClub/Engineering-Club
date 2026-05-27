@@ -183,7 +183,7 @@ function startTimer(duration) {
     }, 1000); // Update every 1 second (1000ms)
 }
 
-function answertTimer(duration) {
+function answerTimer(duration) {
     clearInterval(timerInterval); // Clear any existing timer
     timerText.textContent = "";
     let timer = duration, minutes, seconds;
