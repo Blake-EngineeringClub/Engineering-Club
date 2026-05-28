@@ -641,6 +641,7 @@ function ansYellow(){
 
 function resetBoxes(){
     clearInterval(timerInterval);
+    timerBox.style.backgroundColor = "darkblue";
     redBox.classList.remove('greyed-out');
     blueBox.classList.remove('greyed-out');
     greenBox.classList.remove('greyed-out');
