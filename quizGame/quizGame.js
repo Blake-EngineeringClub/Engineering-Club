@@ -21,8 +21,8 @@ let state = "idle";
 let serialState = "N";
 let ansColor = "";
 
-const questionDuration = 120;
-const answerDuration = 15;
+const questionDuration = 90;
+const answerDuration = 10;
 
 const decoder = new TextDecoder();
 let port = "";
